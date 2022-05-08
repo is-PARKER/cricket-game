@@ -2,3 +2,5 @@ flask
 alembic
 sqlalchemy
 jinja2
+
+psycopg2
