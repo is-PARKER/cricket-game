@@ -1,0 +1,44 @@
+
+{% extends "shared/_layout.html" %}
+{% block title %} User Account {% endblock %}
+
+{% block main_content %}
+    <div class="page-core">
+        <h1>Your Cricket Account</h1>
+
+        <div>
+            Welcome to your account {{ user.name }}!
+        </div>
+        
+        <div class="games_table">
+            <h3>Recent Games</h3>
+            <table>
+                <tr>    
+                    <th> Game </th>
+                    <th> Status </th>
+                    <th> Players </th>
+                    <th> Scores </th>
+                    <th> Continue </th>
+                </tr>
+                {% for g in games %}
+                    <tr>
+                        <td>g.game.latest_inning</td>
+                        <td>{{ g.game.game_over }}</td>
+                        <td>{{ g.game.player_one_username }} vs. {{ g.game.player_two_username }}</td> <!-- Turn these into hyperlinks eventually. -->
+                        <td>{{ g.game.player_one_score }} : {{ g.game.player_two_score }}</td>
+                            {% if g.game.game_over is false%}
+                            <td> continue </td> <!-- Needs a href for game continuation. -->
+                            {% else $}
+                            <td> Winner: {{ g.game.winner_username }} </td>
+                            {% endif %}
+                    </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block additional_css %}
+    <!-- this would be css from about.html -->
+{% endblock %}

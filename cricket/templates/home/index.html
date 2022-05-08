@@ -1,0 +1,46 @@
+{% extends "shared/_layout.html" %}
+{% block main_content %}
+
+    <div class="hero">
+        <div class="hero-inner">
+            <h1>Keep track of your crushing victories with Cricket. For serious chirpers only. </h1>
+            <input type="text" placeholder=" Look up games" class="form-control"> <!-- Needs to query games by number -->
+        </div>
+
+        or <a href="#">browse projects</a> <!-- Create a list of the most recent games -->
+    </div>
+
+    <div class="pypi-stats">
+        <div class="stat">{{ "{:,}".format(games_count) }} projects</div>
+        <div class="stat">{{ "{:,}".format(innings_count) }} release</div>
+        <div class="stat">{{ "{:,}".format(user_count) }} users</div>
+    </div>
+
+    <div class="container project-list">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+
+                <h2>Most Recent Games</h2>
+
+                <div class="subtitle">
+                    Hot off the press: the newest project releases
+                </div>
+
+                {% for i in innings %}
+                    <div class="project">
+                        <div class="title">
+                            <div> {{ i.inning.inning }} of Game: {{ i.inning.game_id }} </div>
+                            
+                            <div class="desc"> {{ i.inning.player_one_username }}:{{ i.inning.player_one_score }} </div>
+                            <div class="desc"> {{ i.inning.player_two_username }}:{{ i.inning.player_two_score }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+
+{% endblock %}
