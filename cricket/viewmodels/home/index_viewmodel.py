@@ -7,7 +7,7 @@ from cricket.viewmodels.shared.viewmodelbase import ViewModelBase
 # Add user service.
 
 
-class IndexViewmodel():
+class IndexViewModel():
     def __init__(self):
         super().__init__()
         

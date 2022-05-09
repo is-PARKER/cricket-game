@@ -27,7 +27,7 @@
                         <td>{{ g.game.player_one_username }} vs. {{ g.game.player_two_username }}</td> <!-- Turn these into hyperlinks eventually. -->
                         <td>{{ g.game.player_one_score }} : {{ g.game.player_two_score }}</td>
                             {% if g.game.game_over is false%}
-                            <td> continue </td> <!-- Needs a href for game continuation. -->
+                            <td> continue </td> {# Needs a href for game continuation. #}
                             {% else $}
                             <td> Winner: {{ g.game.winner_username }} </td>
                             {% endif %}
