@@ -11,19 +11,20 @@ from cricket.data.modelbase import Base
 
 # Rounds holds game state which is loaded by python program. 
 
-class Innings(Base):
-    __tablename__ = "innings"
+class Inning(Base):
+    __tablename__ = "inning"
 
     id = sqlalchemy.Column(sqlalchemy.Integer,primary_key=True,index=True)
     
-    player_one_username = sqlalchemy.Column(sqlalchemy.Text(32), sqlalchemy.ForeignKey('users.username'),  nullable =  False) # Set u p secondary key. Should be pulled from game creation.
-    player_two_username = sqlalchemy.Column(sqlalchemy.Text(32), sqlalchemy.ForeignKey('users.username'),  nullable = False) #Set u p secondary Key. Validation needed on creation.
-    game_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("games.id"),  nullable = False) 
+    player_one_username = sqlalchemy.Column(sqlalchemy.Text(32), sqlalchemy.ForeignKey('user.username'),  nullable =  False) # Set u p secondary key. Should be pulled from game creation.
+    player_two_username = sqlalchemy.Column(sqlalchemy.Text(32), sqlalchemy.ForeignKey('user.username'),  nullable = False) #Set u p secondary Key. Validation needed on creation.
+    game_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("game.id"),  nullable = False) 
 
     player_one_score = sqlalchemy.Column(sqlalchemy.Integer,  nullable = False, default = 0)
     player_two_score = sqlalchemy.Column(sqlalchemy.Integer,  nullable = False, default = 0)  
+    scrubbed = sqlalchemy.Column(sqlalchemy.Boolean, default = False )
 
-    inning = sqlalchemy.Column(sqlalchemy.Integer,  nullable   = False, default=0) # needs updated in the game as progressed. 
+    inning = sqlalchemy.Column(sqlalchemy.Integer,  nullable  = False, default=0) # needs updated in the game as progressed. 
 
 
     # State to manage scoring and closeouts. 
