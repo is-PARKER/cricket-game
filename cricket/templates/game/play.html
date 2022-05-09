@@ -1,0 +1,88 @@
+{% extends "shared/_layout.html" %}
+{% block title %} Game {{ game.id }} {% endblock %}
+
+{% block main_content %}
+
+<h1> {{ game.id }} </h1>
+
+<div class="game_layout">
+
+    <div class="button-group-left">
+        <button>Mark 15</button>
+        <button>Mark 16</button>
+        <button>Mark 17</button>
+        <button>Mark 18</button>
+        <button>Mark 19</button>
+        <button>Mark 20</button>
+        <button>Bullseye</button>
+    </div>
+
+    <table>
+        <tr>
+            <th>{{ game.player_one_username }}</th>
+            <th> vs </th>
+            <th>{{ player_two_username }}</th>
+        </tr>
+
+        <tr>
+            <td>{ p1_fifteen }</td>
+            <td>15</td>
+            <td>{ p2_fifteen }</td>
+        </tr>
+
+        <tr>
+            <td>{ p1_sixteen }</td>
+            <td>16</td>
+            <td>{ p2_sixteen }</td>
+        </tr>    
+        <tr>
+            <td>{ p1_seventeen }</td>
+            <td>17</td>
+            <td>{ p2_seventeen }</td>
+        </tr>
+        <tr>
+            <td>{ p1_eighteen }</td>
+            <td>18</td>
+            <td>{ p2_eighteen }</td>
+        </tr>
+        <tr>
+            <td>{ p1_nineteen }</td>
+            <td>19</td>
+            <td>{ p2_nineteen }</td>
+        </tr>
+        <tr>
+            <td>{ p1_twenty }</td>
+            <td>20</td>
+            <td>{ p2_twenty }</td>
+        </tr>
+        <tr>
+            <td>{ p1_bullseye }</td>
+            <td>Bullseye</td>
+            <td>{ p2_bullseye }</td>
+        </tr>
+        <tr>
+            <td>{ p1_miss }</td>
+            <td>MISS</td>
+            <td>{ p2_miss }</td>
+        </tr>
+        
+
+    </table>
+
+    <div class="button-group-right">
+        <button>Mark 15</button>
+        <button>Mark 16</button>
+        <button>Mark 17</button>
+        <button>Mark 18</button>
+        <button>Mark 19</button>
+        <button>Mark 20</button>
+        <button>Bullseye</button>
+    </div>
+
+
+{% endblock %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="/static/css/account.css">
+{% endblock %}
+

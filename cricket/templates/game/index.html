@@ -1,0 +1,68 @@
+
+{% extends "shared/_layout.html" %}
+{% block title %} User Account {% endblock %}
+
+{% block main_content %}
+    <div class="page-core">
+        <h1>Games Dashboard</h1>
+
+        <div>
+            Welcome to your account {{ user.name }}!
+        </div>
+
+        <div class=actions>
+            <ul>
+                <li href="/game/create"> Create Game </li>
+            </ul>
+
+            <div class="form-container">
+                <form action="" method="POST" class="account-form">
+                    <h1> Search for Game</h1>
+        
+                    <input name="game_id" type="number" placeholder=" Enter Game ID" class="form-control" value="{{ game_id }}">
+                    <p> Player One: {{ user.username }}</p>
+                    <input name="player_two_username" type="text" placeholder=" Enter Second Username" class="form-control" value="{{ player_two_username }}">
+                    <input name="game_over" type="checkbox" class="form-control" value="{{ game_over }}"> <label> Game Finished? </label>
+                    <button type="submit" class="btn btn-danger">  Search </button>
+                    <div style="clear: both;"></div>
+        
+                    {% if error %}
+                        <div class="error-msg">{{ error }}</div>
+                    {% endif %}
+                </form>
+            </div>
+
+        </div>
+        
+        <div class="games_table">
+            <h3>Recent Games</h3>
+            <table>
+                <tr>    
+                    <th> Game </th>
+                    <th> Status </th>
+                    <th> Players </th>
+                    <th> Scores </th>
+                    <th> Continue </th>
+                </tr>
+                {% for g in games %} {# Need to filter by logged in user #}
+                    <tr>
+                        <td>g.game.latest_inning</td>
+                        <td>{{ g.game.game_over }}</td>
+                        <td>{{ g.game.player_one_username }} vs. {{ g.game.player_two_username }}</td> <!-- Turn these into hyperlinks eventually. -->
+                        <td>{{ g.game.player_one_score }} : {{ g.game.player_two_score }}</td>
+                            {% if g.game.game_over is false%}
+                            <td> continue </td> {# <!-- Needs a href for game continuation. --> #}
+                            {% else $}
+                            <td> Winner: {{ g.game.winner_username }} </td>
+                            {% endif %}
+                    </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block additional_css %}
+    <!-- this would be css from about.html -->
+{% endblock %}

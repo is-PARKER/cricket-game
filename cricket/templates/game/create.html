@@ -1,0 +1,25 @@
+{% extends "shared/_layout.html" %}
+{% block title %} Create Game {% endblock %}
+
+{% block main_content %}
+    <div class="form-container">
+        <form action="" method="POST" class="account-form">
+            <h1>Create Game</h1>
+
+            <input name="game_id" type="number" placeholder=" Enter Game ID" class="form-control" value="{{ game_id }}">
+            <p> Player One: {{ user.username }}</p>
+            <input name="player_two_username" type="text" placeholder=" Enter Second Username" class="form-control" value="{{ player_two_username }}">
+            <button type="submit" class="btn btn-danger"> Create Game </button>
+            <div style="clear: both;"></div>
+
+            {% if error %}
+                <div class="error-msg">{{ error }}</div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="/static/css/account.css">
+{% endblock %}
+
