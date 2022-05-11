@@ -10,3 +10,4 @@ class IndexViewmodel(ViewModelBase):
         super().__init__()
         
         self.games = games_service_by_username(self.username)
+

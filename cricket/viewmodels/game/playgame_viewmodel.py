@@ -23,12 +23,9 @@ class PlayGameViewmodel(ViewModelBase):
         if self.game.latest_inning:
             self.inning = game_service.get_inning_by_latest(self.game_id)
 
-def validate():
-    if not self.game:
-        self.error = "Game is invalid."
-
-    if self.game.player_one_username != self.username:
-        self.error = "Players not logged in!"
-
-    def to_dict(self):
-        return self.__dict__
+    def validate():
+        if not self.game:
+            self.error = "Game is invalid."
+    
+        if self.game.player_one_username != self.username:
+            self.error = "Players not logged in!"
