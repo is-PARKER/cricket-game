@@ -3,6 +3,9 @@ from typing import Optional
 import flask 
 from flask import Request
 
+from cricket.infrastructure.cookie_auth
+from cricket.infrastructure.game_maker import check_cookie_auth_username
+
 
 class ViewModelBase:
     def __init__(self):
@@ -10,7 +13,7 @@ class ViewModelBase:
         #consdier adding request dictionary. 
 
         self.error: Optional[str] = None
-        self.user_id: Optional[int] = cookie_auth.get_user_id_via_auth_cookie(self.request)
+        self.username: Optional[int] = check_cookie_auth_username(self.request)
 
     def to_dict(self):
         return self.__dict__

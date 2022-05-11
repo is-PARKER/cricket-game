@@ -2,6 +2,6 @@ flask
 alembic
 sqlalchemy
 jinja2
-flask-login
+wtforms
 
 psycopg2

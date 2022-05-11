@@ -1,6 +1,5 @@
 import hashlib 
 from datetime import timedelta
-from pydoc import text
 from typing import Optional
 from urllib import response
 
@@ -11,12 +10,13 @@ from flask import Response
 
 auth_cookie_name ="cricket_cookie"
 
+
 def set_auth_username(response: Response, username: str):
     hashed_username = text_hasher(username)
     hashed_dict = "{}:{}".format(username,hashed_username)
 
     response.set_cookie(key=auth_cookie_name,value=hashed_dict, secure=False, httponly=True, samesite='lax')
-    return response
+    return response    
 
 def text_hasher(text: str):
     hasher = hashlib.new('sha512')
@@ -25,7 +25,7 @@ def text_hasher(text: str):
     digested = salted_and_hash.hexdigest()
     return digested
 
-def check_cookie_auth_username(request: Request) -> Optional:
+def check_cookie_auth_username(request: Request) -> Optional[username]:
     if auth_cookie_name not in request.cookies:
         return None
     

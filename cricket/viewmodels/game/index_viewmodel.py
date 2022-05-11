@@ -7,11 +7,8 @@ from cricket.viewmodels.shared.viewmodelbase import ViewModelBase
 # Add user service.
 
 
-class IndexViewmodel():
+class IndexViewmodel(ViewModelBase):
     def __init__(self):
         super().__init__()
         
-        self.user = # Add user login service. 
-
-    def to_dict(self):
-        return self.__dict__
+        self.games = games_service_by_username(self.username)

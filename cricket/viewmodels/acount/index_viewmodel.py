@@ -4,15 +4,9 @@ import flask
 from flask import Request
 from cricket.viewmodels.shared.viewmodelbase import ViewModelBase
 
-# Add user service.
-
 
 class IndexViewmodel(ViewModelBase):
     def __init__(self):
         super().__init__()
         
-
-        
-
-    def to_dict(self):
-        return self.__dict__
+        self.games = games_service_by_username(self.username)
