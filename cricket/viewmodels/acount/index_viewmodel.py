@@ -11,7 +11,7 @@ class IndexViewmodel(ViewModelBase):
     def __init__(self):
         super().__init__()
         
-        self.user = # Add user login service. 
+
         
 
     def to_dict(self):
