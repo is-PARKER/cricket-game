@@ -23,9 +23,12 @@ class Inning(Base):
     player_one_score = sqlalchemy.Column(sqlalchemy.Integer,  nullable = False, default = 0)
     player_two_score = sqlalchemy.Column(sqlalchemy.Integer,  nullable = False, default = 0)  
     scrubbed = sqlalchemy.Column(sqlalchemy.Boolean, default = False )
+    player_turn = sqlalchemy.Column(sqlalchemy.Integer, nullable = False, default = 1)
 
     inning = sqlalchemy.Column(sqlalchemy.Integer,  nullable  = False, default=0) # needs updated in the game as progressed. 
 
+
+    dart_count = sqlalchemy.Column(sqlalchemy.Integer, nullable = False, default = 0)
 
     # State to manage scoring and closeouts. 
     # Player one inning state.

@@ -28,7 +28,7 @@ def find_innings_by_game(game_id: str) -> Optional[Inning]:
 def find_inning_by_game(game_id: str) -> Optional[Inning]:
     session = db_session.create_session()
     try:
-        return session.query(Inning).filter(Inning.game_id == game_id).order_by(Inning.game_id).desc().first())
+        return session.query(Inning).filter(Inning.game_id == game_id).order_by(Inning.game_id).desc().first()
     finally:
         session.close()
 
