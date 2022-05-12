@@ -11,7 +11,7 @@ from infrastructure.cookie_auth import check_cookie_auth_username as get_usernam
 # Add user service.
 
 
-class CreateGameViewmodel(ViewModelBase, form = None):
+class CreateGameViewModel(ViewModelBase, form = None):
     def __init__(self):
         super().__init__()
         

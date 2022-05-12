@@ -5,7 +5,7 @@ from flask import Request
 from cricket.viewmodels.shared.viewmodelbase import ViewModelBase
 
 
-class IndexViewmodel(ViewModelBase):
+class IndexViewModel(ViewModelBase):
     def __init__(self):
         super().__init__()
         

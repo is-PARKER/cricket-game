@@ -1,12 +1,20 @@
+
 {% extends "shared/_layout.html" %}
-{% block title %} Create Game {% endblock %}
+{% block title %} User Account {% endblock %}
 
 {% block main_content %}
     <div class="form-container">
         <form action="" method="POST" class ="account-form">
-            <h1> Create Game </h1>
-            <div> first_player : {{ player_one_username }}
-            <div>{{ form.player_two_username.label }}: {{ form.player_two_username() }}</div>
+            <h1> Login </h1>
+            <div>{{ form.username.label }}: {{ form.username() }}</div>
+                {% if form.username.errors %}
+                <ul class="error-msg">
+                    {% for error in form.username.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            <div>{{ form.password.label }}: {{ form.password() }}</div>
                 {% if form.password.errors %}
                 <ul class="error-msg">
                     {% for error in form.password.errors %}
@@ -21,6 +29,5 @@
 {% endblock %}
 
 {% block additional_css %}
-    <link rel="stylesheet" href="/static/css/account.css">
+    <!-- this would be css from about.html -->
 {% endblock %}
-
