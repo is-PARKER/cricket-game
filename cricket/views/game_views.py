@@ -1,13 +1,12 @@
 
 import flask
 from flask import redirect, render_template, Request
-from flask_user import current_userroles_required, UserManager, UserMixin
 
-from cricket.infrastructure import game_cookie_maker
-from cricket.services.game_service import create_game
-from cricket.infrastructure.forms import CreateGameForm
-from cricket.viewmodels.game.index_viewmodel import IndexViewModel
-from cricket.viewmodels.shared.viewmodelbase import ViewModelBase
+from infrastructure import game_cookie_maker
+from services.game_service import create_game
+from infrastructure.forms import CreateGameForm
+from viewmodels.game.index_viewmodel import IndexViewModel
+from viewmodels.shared.viewmodelbase import ViewModelBase
 
 blueprint = flask.Blueprint('game', __name__, template_folder='templates')
 

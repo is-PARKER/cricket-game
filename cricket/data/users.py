@@ -18,7 +18,6 @@ class User(Base):
     email = sqlalchemy.Column(sqlalchemy.String, index=True, unique=True, nullable=True)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True, index=True)
     created_date = sqlalchemy.Column(sqlalchemy.DateTime())
-    profile_image_url = sqlalchemy.Column(sqlalchemy.String)
     last_login = sqlalchemy.Column(sqlalchemy.DateTime())
 
     game = relationship("Game")

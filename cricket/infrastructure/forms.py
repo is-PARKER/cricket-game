@@ -1,4 +1,4 @@
-from ast import Pass
+
 from wtforms import Form, BooleanField, StringField, PasswordField, validators, SubmitField
 
 class RegisterUserForm(Form):

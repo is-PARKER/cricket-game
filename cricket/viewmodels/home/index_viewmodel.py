@@ -4,9 +4,9 @@ import flask
 from flask import Request
 from cricket.viewmodels.shared.viewmodelbase import ViewModelBase
 
-from cricket.services.user_service import get_user_count
-from cricket.services.games_service import get_games_count
-from cricket.services.innings_service import get_latest_innings
+from services.user_service import get_user_count
+from services.games_service import get_games_count
+from services.innings_service import get_latest_innings
 
 # Add user service.
 

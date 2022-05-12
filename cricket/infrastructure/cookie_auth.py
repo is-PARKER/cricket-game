@@ -25,7 +25,7 @@ def text_hasher(text: str):
     digested = salted_and_hash.hexdigest()
     return digested
 
-def check_cookie_auth_username(request: Request) -> Optional[username]:
+def check_cookie_auth_username(request: Request):
     if auth_cookie_name not in request.cookies:
         return None
     

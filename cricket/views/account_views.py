@@ -3,13 +3,14 @@ import flask
 from flask import Request
 from flask import render_template
 
-from cricket.infrastructure.forms import RegisterUserForm, LoginForm
-from cricket.infrastructure.cookie_auth import set_auth_username, logout
+from infrastructure.forms import RegisterUserForm, LoginForm
+from infrastructure.cookie_auth import set_auth_username, logout
+from services import user_service
 
 
 
-from cricket.viewmodels.account.index_viewmodel import IndexViewModel
-from cricket.viewmodels.shared.viewmodelbase import ViewModelBase
+from viewmodels.account.index_viewmodel import IndexViewModel
+from viewmodels.shared.viewmodelbase import ViewModelBase
 
 
 
@@ -55,8 +56,8 @@ def login():
             error = "The account does not exist or the password is wrong."
         
         resp = flask.redirect('/account')
-        set_auth_username(user.username)
-    
+        set_auth_username(resp, user.username)
+        return resp
 
     return render_template('account/login.html', form=form)
 

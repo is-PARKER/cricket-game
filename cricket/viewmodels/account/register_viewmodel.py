@@ -1,5 +1,5 @@
-from cricket.services import user_service
-from cricket.viewmodels.shared.viewmodelbase import ViewModelBase
+from services import user_service
+from viewmodels.shared.viewmodelbase import ViewModelBase
 
 
 

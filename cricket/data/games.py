@@ -16,7 +16,7 @@ class Game(Base):
     __tablename__ = "game"
 
     id = sqlalchemy.Column(sqlalchemy.Integer,primary_key=True,index=True,unique=True)
-    latest_inning = sqlalchemy.Column(sqlalchemy.Integer, nullable = False) 
+    latest_inning = sqlalchemy.Column(sqlalchemy.Integer, nullable = False, default=0) 
     player_one_username = sqlalchemy.Column(sqlalchemy.Text(32),sqlalchemy.ForeignKey('user.username'), nullable= False) # Setup secondary key. Validation
     player_two_username = sqlalchemy.Column(sqlalchemy.Text(32),sqlalchemy.ForeignKey('user.username'), nullable = False) #Setup secondary Key. Validation
 

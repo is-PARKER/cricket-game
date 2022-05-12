@@ -3,5 +3,6 @@ alembic
 sqlalchemy
 jinja2
 wtforms
+passlib
 
 psycopg2

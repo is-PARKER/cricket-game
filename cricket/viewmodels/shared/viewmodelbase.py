@@ -3,7 +3,7 @@ from typing import Optional
 import flask 
 from flask import Request
 
-from cricket.infrastructure.cookie_auth import check_cookie_auth_username
+from infrastructure.cookie_auth import check_cookie_auth_username
 
 
 class ViewModelBase:

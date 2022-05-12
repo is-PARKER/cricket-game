@@ -2,8 +2,8 @@
 import flask
 from flask import render_template
 
-from cricket.viewmodels.home.index_viewmodel import IndexViewModel
-from cricket.viewmodels.shared.viewmodelbase import ViewModelBase
+from viewmodels.home.index_viewmodel import IndexViewModel
+from viewmodels.shared.viewmodelbase import ViewModelBase
 
 blueprint = flask.Blueprint('home', __name__, template_folder='templates')
 

@@ -3,8 +3,8 @@ from typing import Optional
 import flask 
 from flask import Request
 
-from cricket.infrastructure.to_int import to_int
-from cricket.viewmodels.shared.viewmodelbase import ViewModelBase
+from infrastructure.to_int import to_int
+from viewmodels.shared.viewmodelbase import ViewModelBase
 
 # Add user service.
 

@@ -5,7 +5,7 @@ import flask
 from flask import Request
 from wtforms import Form, BooleanField, Stringfield, PasswordField, validators
 
-from cricket.viewmodels.shared.viewmodelbase import ViewModelBase
+from viewmodels.shared.viewmodelbase import ViewModelBase
 
 from infrastructure.cookie_auth import check_cookie_auth_username as get_username
 # Add user service.
