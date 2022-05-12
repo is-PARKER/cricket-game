@@ -3,7 +3,7 @@ import sqlalchemy as sqal
 from sqlalchemy import orm
 from sqlalchemy.orm import Session
 
-from cricket.data.modelbase import Base
+from data.modelbase import Base
 
 __session
 

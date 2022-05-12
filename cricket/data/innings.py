@@ -1,6 +1,4 @@
-from ast import For
-from email.policy import default
-from cricket.data.__db_session import session
+from data.__db_session import session
 
 import sqlalchemy
 from sqlalchemy import Table, Column, Integer, ForeignKey

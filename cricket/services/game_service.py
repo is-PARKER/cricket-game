@@ -15,10 +15,10 @@ def get_games_count() -> int:
         session.close()
 
 
-def find_games_by_username(username: str) -> Optional[Game]:
+def find_games_by_username(username: str) -> Optional[list[Game]]:
     session = db_session.create_session()
     try:
-        return list(session.query(Game).filter(Game.username == username).order_by(Game.id).desc())
+        return list(session.query(Game).filter(Game.username == username).order_by(Game.id.desc()))
     finally:
         session.close()
 

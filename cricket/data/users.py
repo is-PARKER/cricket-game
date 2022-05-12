@@ -1,11 +1,10 @@
-from enum import unique
-from operator import index
-from cricket.data.__db_session import session
 
 import sqlalchemy
 from sqlalchemy import Table, Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
-from cricket.data.modelbase import Base
+
+from data.modelbase import Base
+from data.__db_session import session
 
 
 

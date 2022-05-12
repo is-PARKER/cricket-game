@@ -9,7 +9,6 @@ from services.game_service import find_game_by_id
 from data.innings import Inning
 
 
-
 def get_innings_count() -> int:
     session = db_session.create_session()
     try:
@@ -17,18 +16,25 @@ def get_innings_count() -> int:
     finally:
         session.close()
 
-
-def find_innings_by_game(game_id: str) -> Optional[Inning]:
+def get_latest_innings() -> list[Inning]:
     session = db_session.create_session()
     try:
-        return list(session.query(Inning).filter(Inning.game_id == game_id).order_by(Inning.game_id).desc())
+        return session.query(Inning).order_by(Inning.id.desc()).limit(5)
+    finally:
+        session.close()
+
+
+def find_innings_by_game(game_id: str) -> Optional[list[Inning]]:
+    session = db_session.create_session()
+    try:
+        return list(session.query(Inning).filter(Inning.game_id == game_id).order_by(Inning.game_id.desc()))
     finally:
         session.close()
 
 def find_inning_by_game(game_id: str) -> Optional[Inning]:
     session = db_session.create_session()
     try:
-        return session.query(Inning).filter(Inning.game_id == game_id).order_by(Inning.game_id).desc().first()
+        return session.query(Inning).filter(Inning.game_id == game_id).order_by(Inning.game_id.desc()).first()
     finally:
         session.close()
 
@@ -58,7 +64,7 @@ def create_new_inning(Inning: Inning) -> Optional[Inning]:
 def find_inning_by_id(inning_id: int) -> Optional[Inning]:
     session = db_session.create_session()
     try:
-        inning = session.query(Inning).filter(Inning.id == inning_id).order_by(Inning.inning).first()
+        inning = session.query(Inning).filter(Inning.id == inning_id).order_by(Inning.inning.desc()).first()
         return inning
     finally:
         session.close()

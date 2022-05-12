@@ -5,13 +5,13 @@ from flask import Request
 from cricket.viewmodels.shared.viewmodelbase import ViewModelBase
 
 from services.user_service import get_user_count
-from services.games_service import get_games_count
-from services.innings_service import get_latest_innings
+from services.game_service import get_games_count
+from services.inning_service import get_latest_innings
 
 # Add user service.
 
 
-class IndexViewModel():
+class IndexViewModel(ViewModelBase):
     def __init__(self):
         super().__init__()
         

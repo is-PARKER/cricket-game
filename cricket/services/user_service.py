@@ -1,3 +1,4 @@
+from optparse import Option
 from typing import Optional
 
 from passlib.handlers.sha2_crypt import sha512_crypt as crypto
@@ -21,6 +22,15 @@ def find_user_by_username(username: str) -> Optional[User]:
         session.close()
 
 
+
+def find_user_by_email(email: str) -> Option[User]:
+    session = db_session.create_session()
+    try:
+        return session.query(User).filter(User.email == email).first()
+    finally:
+        session.close()
+
+
 def create_user(username: str, email: str, password: str) -> Optional[User]:
 
     if find_user_by_username(username):
@@ -28,7 +38,7 @@ def create_user(username: str, email: str, password: str) -> Optional[User]:
 
     user = User()
     user.email = email
-    user.name = username
+    user.username = username
     user.hashed_password = hash_text(password)
 
     session = db_session.create_session()
