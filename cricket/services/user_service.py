@@ -1,9 +1,9 @@
-from optparse import Option
+
 from typing import Optional
 
 from passlib.handlers.sha2_crypt import sha512_crypt as crypto
 import data.__db_session as db_session
-from data.users import User
+from data.__db_session import User
 
 
 def get_user_count() -> int:
@@ -23,7 +23,7 @@ def find_user_by_username(username: str) -> Optional[User]:
 
 
 
-def find_user_by_email(email: str) -> Option[User]:
+def find_user_by_email(email: str) -> Optional[User]:
     session = db_session.create_session()
     try:
         return session.query(User).filter(User.email == email).first()

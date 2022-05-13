@@ -3,13 +3,15 @@ import sys
 
 import flask
 from flask import Flask
+
+
 # import psycopg2
 
 
 folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, folder)
 
-import data.__db_session as db_session
+from data import __db_session as db_session
 
 
 import config
@@ -28,6 +30,7 @@ else:
 
 def main():
     configure()
+    cricket.run(debug=True, port=5006)
 
 def configure():
 
@@ -35,7 +38,7 @@ def configure():
 
     setup_db()
 
-def setup_db(username,password):
+def setup_db(): #might need username and pasword later.
 
     #connection_string = 'postgresql+psycopg2://' + username + password + '@cricket-game/cricket'
     # print(f'Connection String is {connection_string} ')

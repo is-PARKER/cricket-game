@@ -3,8 +3,6 @@ from typing import Optional
 import flask 
 from flask import Request
 
-from services import game_service, inning_service
-from infrastructure.to_int import to_int
 from viewmodels.shared.viewmodelbase import ViewModelBase
 
 # Add user service.
@@ -17,12 +15,14 @@ class PlayGameViewmodel(ViewModelBase):
         self.game = None
 
         if game_id:
+            from services import game_service
             self.game = game_service.find_game_by_id(self.game_id)
 
         else:
             self.error = "Game is not created"        
 
         if self.game.latest_inning:
+            from services import inning_service
             self.inning = inning_service.find_inning_by_game(self.game_id)
 
 

@@ -1,12 +1,9 @@
+import imp
 from typing import Optional
-from cricket.data.games import Game
+from data.games import Game
+from data.innings import Inning
 
 import data.__db_session as db_session
-
-from services.user_service import find_user_by_username
-from services.game_service import find_game_by_id
-
-from data.innings import Inning
 
 
 def get_innings_count() -> int:
@@ -15,6 +12,7 @@ def get_innings_count() -> int:
         return session.query(Inning).count()
     finally:
         session.close()
+
 
 def get_latest_innings() -> list[Inning]:
     session = db_session.create_session()

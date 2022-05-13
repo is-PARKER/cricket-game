@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from data.modelbase import Base
 
-__session
+__session = None
 
 # Session maker follows the Flask and Sqlalchemy session creation and factory creation pattern
 

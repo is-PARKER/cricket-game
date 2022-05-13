@@ -1,4 +1,5 @@
 
+from crypt import methods
 import flask
 from flask import Request
 from flask import render_template
@@ -60,12 +61,12 @@ def register_post():
 
 
 ### Login ###
-@blueprint.route('/account/login', method=['GET'])
+@blueprint.route('/account/login', methods=['GET'])
 def login_get():
     vm = LoginViewmodel()
     return render_template('account/register.html', **vm.to_dict())
 
-@blueprint.route('/account/login', method=['POST'])
+@blueprint.route('/account/login', methods=['POST'])
 def login_post():
 
     vm = LoginViewmodel()

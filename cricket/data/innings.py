@@ -1,5 +1,3 @@
-from data.__db_session import session
-
 import sqlalchemy
 from sqlalchemy import Table, Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship

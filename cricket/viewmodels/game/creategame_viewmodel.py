@@ -2,7 +2,7 @@ from typing import Optional
 
 import flask 
 from flask import Request
-from wtforms import Form, BooleanField, Stringfield, PasswordField, validators
+from wtforms import Form, BooleanField, PasswordField, validators
 
 from viewmodels.shared.viewmodelbase import ViewModelBase
 
