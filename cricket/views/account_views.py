@@ -10,6 +10,8 @@ from services import user_service
 
 
 from viewmodels.account.index_viewmodel import IndexViewModel
+from viewmodels.account.register_viewmodel import RegisterViewModel
+from viewmodels.account.login_viewmodel import LoginViewmodel
 from viewmodels.shared.viewmodelbase import ViewModelBase
 
 
@@ -20,46 +22,71 @@ blueprint = flask.Blueprint('account', __name__, template_folder='templates')
 @blueprint.route('/account')
 def index():
     vm = IndexViewModel()
+    if not vm.username:
+        return flask.redirect('/account/login')
+        
     return render_template('account/index.html', **vm.to_dict())
 
 
 ### Register ###
+@blueprint.route('/account/register', methods=['GET'])
+def register_get():
+    vm = RegisterViewModel()
+    return render_template('account/register.html', **vm.to_dict())
 
-@blueprint.route('/account/register', methods=['GET','POST'])
-def register():
-    request_form = request.form
+@blueprint.route('/account/register', methods=['POST'])
+def register_post():
+    vm = RegisterViewModel()
+    request_form = vm.request.form
     form = RegisterUserForm(request_form)
 
-    if request.method == 'POST' and form.validate():
+    if form.validate():
+        vm.username = form.username.data
+        vm.email = form.email.data
+        vm.password = form.password.data
+
         user = user_service.create_user(form.username.data,form.email.data,form.password.data)
 
         if not user:
-            error = "User Invalid!"
+            vm.error = "User Invalid!"
     
         resp = flask.redirect('/account')
         set_auth_username(resp,user.username)
         
         return resp
     
-    return render_template('account/register.html', form=form)
+    return render_template('account/register.html', **vm.to_dict())
+
+
 
 ### Login ###
+@blueprint.route('/account/login', method=['GET'])
+def login_get():
+    vm = LoginViewmodel()
+    return render_template('account/register.html', **vm.to_dict())
 
-@blueprint.route('/account/login', method=['GET','POST'])
-def login():
+@blueprint.route('/account/login', method=['POST'])
+def login_post():
 
-    request_form = request.form
+    vm = LoginViewmodel()
+    request_form = vm.request.form
     form = LoginForm(request_form)
-    if request.method == 'POST' and form.validate():
-        user = user_service.login_user(form.username.data,form.password.data)
+
+    if form.validate():
+        vm.username = form.username.data
+        vm.password = form.password.data
+
+        user = user_service.login_user(form.username.data, form.password.data)
+
         if not user:
-            error = "The account does not exist or the password is wrong."
-        
+            vm.error = "User Invalid!"
+    
         resp = flask.redirect('/account')
         set_auth_username(resp, user.username)
+        
         return resp
-
-    return render_template('account/login.html', form=form)
+                                
+    return render_template('account/register.html', **vm.to_dict())
 
 
 ### Logout ###
@@ -68,6 +95,7 @@ def login():
 def logout():
     resp = flask.redirect('/')
     logout(resp)
+    return resp
             
 
 

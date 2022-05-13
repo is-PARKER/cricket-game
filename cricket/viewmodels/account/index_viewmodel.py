@@ -10,6 +10,7 @@ class IndexViewModel(ViewModelBase):
         super().__init__()
         
         self.games = find_games_by_username(self.username)
-
         
+
+
 

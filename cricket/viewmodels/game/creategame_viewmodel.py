@@ -1,5 +1,4 @@
 from typing import Optional
-from xml.dom import ValidationErr
 
 import flask 
 from flask import Request
@@ -11,20 +10,12 @@ from infrastructure.cookie_auth import check_cookie_auth_username as get_usernam
 # Add user service.
 
 
-class CreateGameViewModel(ViewModelBase, form = None):
+class CreateGameViewModel(ViewModelBase):
     def __init__(self):
         super().__init__()
         
         self.player_one_username = get_username(self.request)
 
-        if form:
-            player_two_username = form.username.data
-            self.player_two_username = validate(player_two_username)
 
-    def validate(self, username_check):
     
-        if service.userservice.get_user_by_username(username_check):
-            return username_check
-        
-        else:
-            raise ValidationErr('Username not Created.')
+       

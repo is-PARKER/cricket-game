@@ -3,6 +3,7 @@ from typing import Optional
 import flask 
 from flask import Request
 
+from services import game_service, inning_service
 from infrastructure.to_int import to_int
 from viewmodels.shared.viewmodelbase import ViewModelBase
 
@@ -16,16 +17,12 @@ class PlayGameViewmodel(ViewModelBase):
         self.game = None
 
         if game_id:
-            self.game = game_service.get_game_by_id(self.game_id)
+            self.game = game_service.find_game_by_id(self.game_id)
 
-        
+        else:
+            self.error = "Game is not created"        
 
         if self.game.latest_inning:
-            self.inning = game_service.get_inning_by_latest(self.game_id)
+            self.inning = inning_service.find_inning_by_game(self.game_id)
 
-    def validate():
-        if not self.game:
-            self.error = "Game is invalid."
-    
-        if self.game.player_one_username != self.username:
-            self.error = "Players not logged in!"
+

@@ -1,11 +1,15 @@
 
+from urllib import response
 import flask
 from flask import redirect, render_template, Request
+from cricket.services.game_service import create_game_with_inning
 
 from infrastructure import game_cookie_maker
-from services.game_service import create_game
 from infrastructure.forms import CreateGameForm
-from viewmodels.game.index_viewmodel import IndexViewModel
+
+from viewmodels.game.creategame_viewmodel import CreateGameViewModel
+from viewmodels.game.playgame_viewmodel import PlayGameViewmodel
+from viewmodels.game.index_viewmodel import IndexViewmodel
 from viewmodels.shared.viewmodelbase import ViewModelBase
 
 blueprint = flask.Blueprint('game', __name__, template_folder='templates')
@@ -15,29 +19,42 @@ blueprint = flask.Blueprint('game', __name__, template_folder='templates')
 
 @blueprint.route('/game', method=['GET'])
 def index():
-    vm = IndexViewModel()
-    if not vm.user:
-        return flask.redirect('account/login')
+    vm = IndexViewmodel()
+    if not vm.username:
+        return flask.redirect('/account/login')
     return render_template(template_file='game/index.html', **vm.to_dict())
 
 @blueprint.route('/game', method=['POST'])
 def index():
-    vm = IndexViewModel()
+    vm = IndexViewmodel()
+    if not vm.username:
+        return flask.redirect('/account/login')
     return render_template(template_file='game/index.html', **vm.to_dict())
 
 
 
 ### Create Game View ###    
-@blueprint.route('/game/create', method=['GET','POST'])
-def create():
+@blueprint.route('/game/create', method=['GET'])
+def creategame_get():
     vm = CreateGameViewModel()
-    req = request.form
-    form = CreateGameForm(req)
-    if request.method == "POST":
-        
-        game = services.create_game(p1_username = vm.player_one_username ,p2_username=form.player_two_username.data)
+    if not vm.username:
+        return flask.redirect('/account/login')
+    return vm.to_dict()
 
-        resp = flask.redirect('playgame/< game.id >')
+@blueprint.route('/game/create', method=['POST'])
+def creategame_post():
+    vm = CreateGameViewModel()
+    if not vm.username:
+        return flask.redirect('/account/login')
+
+    request_form = vm.request.form
+    form = CreateGameForm(request_form)
+    if form.validate():
+        
+        game = create_game_with_inning(p1_username = vm.player_one_username , p2_username=form.player_two_username.data)
+        game_id = game.id
+
+        resp = flask.redirect(f'/game/play/{game_id}')
         game_cookie_maker.set_game_cookies(response=resp, game_id=game.id,latest_inning=0,p1_username=vm.username)
         
 
@@ -47,15 +64,18 @@ def create():
 
 
 ### Play Game ###
-@blueprint.route('/game/play', method=['GET'])
-def play():
-    vm = PlayGameViewModel()
+@blueprint.route('/game/play/<int:game_id>')
+def play(game_id:int):
+    vm = PlayGameViewmodel(game_id)
+    if vm.username != vm.inning.player_one_username:
+        resp = flask.redirect('/account')
+        return resp
+
+    #TODO: Create Get post logic that will round trip info for the game.
+
     return render_template(template_file='game/play.html', **vm.to_dict())
 
-@blueprint.route('/game/play', method=['POST'])
-def play():
-    vm = PlayGameViewModel()
-    return render_template(template_file='game/play.html', **vm.to_dict())
+
 
 
 ### TODO: Create Review Later ###
