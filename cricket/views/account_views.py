@@ -4,8 +4,9 @@ import flask
 from flask import Request
 from flask import render_template
 
+
 from infrastructure.forms import RegisterUserForm, LoginForm
-from infrastructure.cookie_auth import set_auth_username, logout
+from infrastructure.cookie_auth import set_auth_username, logout_username
 from services import user_service
 
 
@@ -23,6 +24,7 @@ blueprint = flask.Blueprint('account', __name__, template_folder='templates')
 @blueprint.route('/account')
 def index():
     vm = IndexViewModel()
+    print(vm.username)
     if not vm.username:
         return flask.redirect('/account/login')
         
@@ -33,6 +35,10 @@ def index():
 @blueprint.route('/account/register', methods=['GET'])
 def register_get():
     vm = RegisterViewModel()
+    request_form = vm.request.form
+    form = RegisterUserForm(request_form)
+    vm.form = form
+
     return render_template('account/register.html', **vm.to_dict())
 
 @blueprint.route('/account/register', methods=['POST'])
@@ -40,6 +46,7 @@ def register_post():
     vm = RegisterViewModel()
     request_form = vm.request.form
     form = RegisterUserForm(request_form)
+    vm.form = form
 
     if form.validate():
         vm.username = form.username.data
@@ -52,7 +59,7 @@ def register_post():
             vm.error = "User Invalid!"
     
         resp = flask.redirect('/account')
-        set_auth_username(resp,user.username)
+        set_auth_username(resp,vm.username)
         
         return resp
     
@@ -64,7 +71,11 @@ def register_post():
 @blueprint.route('/account/login', methods=['GET'])
 def login_get():
     vm = LoginViewmodel()
-    return render_template('account/register.html', **vm.to_dict())
+    request_form = vm.request.form
+    form = LoginForm(request_form)
+    vm.form = form
+
+    return render_template('account/login.html', **vm.to_dict())
 
 @blueprint.route('/account/login', methods=['POST'])
 def login_post():
@@ -86,8 +97,10 @@ def login_post():
         set_auth_username(resp, user.username)
         
         return resp
-                                
-    return render_template('account/register.html', **vm.to_dict())
+
+    vm.form = form
+
+    return render_template('account/login.html', **vm.to_dict())
 
 
 ### Logout ###
@@ -95,7 +108,7 @@ def login_post():
 @blueprint.route('/account/logout')
 def logout():
     resp = flask.redirect('/')
-    logout(resp)
+    logout_username(resp)
     return resp
             
 

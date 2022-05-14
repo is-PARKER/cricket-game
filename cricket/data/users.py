@@ -4,7 +4,9 @@ from sqlalchemy import Table, Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 
 from data.modelbase import Base
-from data.__db_session import session
+from data.games import Game
+from data.innings import Inning
+
 
 
 
@@ -18,6 +20,3 @@ class User(Base):
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True, index=True)
     created_date = sqlalchemy.Column(sqlalchemy.DateTime())
     last_login = sqlalchemy.Column(sqlalchemy.DateTime())
-
-    game = relationship("Game")
-    inning = relationship("Inning")

@@ -12,7 +12,7 @@ class ViewModelBase:
         #consdier adding request dictionary. 
 
         self.error: Optional[str] = None
-        self.username: Optional[int] = check_cookie_auth_username(self.request)
+        self.username: Optional[str] = check_cookie_auth_username(self.request)
 
     def to_dict(self):
         return self.__dict__

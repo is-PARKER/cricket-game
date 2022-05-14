@@ -19,11 +19,11 @@ def database_init(connection: str):
         return raiseExceptions("The connection path has not been passed to the database_init")
 
     engine = sqal.engine.create_engine(connection)
-    __session = orm.sessionmaker(engine)
+    __session = orm.sessionmaker(engine, expire_on_commit=False)
     
     Base.metadata.create_all(engine)
 
-def session():
+def create_session():
     global __session
 
     session: Session = __session()

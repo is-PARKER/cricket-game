@@ -2,7 +2,8 @@ import sqlalchemy
 from sqlalchemy import Table, Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 
-from cricket.data.modelbase import Base
+from  data.modelbase import Base
+
 
 
 # Rounds holds game state which is loaded by python program. 
@@ -12,9 +13,11 @@ class Inning(Base):
 
     id = sqlalchemy.Column(sqlalchemy.Integer,primary_key=True,index=True)
     
-    player_one_username = sqlalchemy.Column(sqlalchemy.Text(32), sqlalchemy.ForeignKey('user.username'),  nullable =  False) # Set u p secondary key. Should be pulled from game creation.
-    player_two_username = sqlalchemy.Column(sqlalchemy.Text(32), sqlalchemy.ForeignKey('user.username'),  nullable = False) #Set u p secondary Key. Validation needed on creation.
+    player_one_username = sqlalchemy.Column(sqlalchemy.Text(32), nullable =  False) # Set u p secondary key. Should be pulled from game creation.
+    player_two_username = sqlalchemy.Column(sqlalchemy.Text(32), nullable = False) #Set u p secondary Key. Validation needed on creation.
     game_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("game.id"),  nullable = False) 
+
+    game = relationship("Game")
 
     player_one_score = sqlalchemy.Column(sqlalchemy.Integer,  nullable = False, default = 0)
     player_two_score = sqlalchemy.Column(sqlalchemy.Integer,  nullable = False, default = 0)  

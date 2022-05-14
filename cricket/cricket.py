@@ -42,7 +42,7 @@ def setup_db(): #might need username and pasword later.
 
     #connection_string = 'postgresql+psycopg2://' + username + password + '@cricket-game/cricket'
     # print(f'Connection String is {connection_string} ')
-    connection_string = os.path.join(os.path.dirname(__file__),'db','test.sqlite')
+    connection_string = "sqlite:////" + os.path.join(os.path.dirname(__file__),'db','test.sqlite')
 
     db_session.database_init(connection_string)
 

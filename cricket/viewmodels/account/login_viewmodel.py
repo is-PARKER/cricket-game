@@ -10,11 +10,8 @@ from wtforms import Form, BooleanField, StringField, PasswordField, validators, 
 
 
 class LoginViewmodel(ViewModelBase):
-    def __init__(self,form):
+    def __init__(self):
         super().__init__()
-        self.username = self.request.form['username']
-        self.password = self.request.form['password']
-
 
     def validate(self):
 
