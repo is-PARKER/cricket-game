@@ -3,27 +3,30 @@
 
 {% block main_content %}
 
-<h1> {{ game.id }} </h1>
+<h1> Game Id: {{ game.id }} </h1>
+<h2> Darts left: {{ 3 - inning.dart_count }} </h2>
 
+<form method="post" action="">
 <div class="container">
+    <div class="row justify-content-center"> {{ game.player_one_username }} vs. {{ inning.player_two_username }}</div> 
     <div class="row justify-content-center">
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Triple 15</button>
-                <button type="button" class="btn btn-secondary">Double 15</button>
-                <button type="button" class="btn btn-secondary">Single 15</button>
+                <button type="button" class="btn btn-secondary" value="p1_triple_15">Triple 15</button>
+                <button type="button" class="btn btn-secondary" value="p1_double_15">Double 15</button>
+                <button type="button" class="btn btn-secondary" value="p1_single_15">Single 15</button>
             </div>
         </div>
         <div class="col-4">
                     <span class="col-1 justify-content-left">{{ inning.p1_fifteen }}</span>                    
-                    <span class="col-1 justify-content-center"> 15 </span>                    
+                    <span class="col-2 justify-content-center"> 15 </span>                    
                     <span class="col-1 justify-content-right">{{ inning.p2_fifteen }}</span>                    
         </div>
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Single 15</button>
-                <button type="button" class="btn btn-secondary">Double 15</button>
-                <button type="button" class="btn btn-secondary">Triple 15</button>
+                <button type="button" class="btn btn-secondary" value="p2_single_15">Single 15</button>
+                <button type="button" class="btn btn-secondary" value="p2_double_15">Double 15</button>
+                <button type="button" class="btn btn-secondary" value="p2_triple_15">Triple 15</button>
             </div>
         </div>
     </div>
@@ -31,10 +34,10 @@
     <div class="row">
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Triple 16</button>
-                <button type="button" class="btn btn-secondary">Double 16</button>
-                <button type="button" class="btn btn-secondary">Single 16</button>
-            </div>
+                <button type="button" class="btn btn-secondary" value="p1_triple_16">Triple 16</button>
+                <button type="button" class="btn btn-secondary" value="p1_double_16">Double 16</button>
+                <button type="button" class="btn btn-secondary" value="p1_single_16">Single 16</button>
+            </div> 
         </div>
         <div class="col-4">
                 <span class="col-1 justify-content-left">{{ inning.p1_sixteen }}</span> 
@@ -43,9 +46,9 @@
         </div>
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Single 16</button>
-                <button type="button" class="btn btn-secondary">Double 16</button>
-                <button type="button" class="btn btn-secondary">Triple 16</button>
+                <button type="button" class="btn btn-secondary" value="p2_single_16">Single 16</button>
+                <button type="button" class="btn btn-secondary" value="p2_double_16">Double 16</button>
+                <button type="button" class="btn btn-secondary" value="p2_triple_16">Triple 16</button>
             </div>
         </div>
     </div>
@@ -53,9 +56,9 @@
     <div class="row">
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Triple 17</button>
-                <button type="button" class="btn btn-secondary">Double 17</button>
-                <button type="button" class="btn btn-secondary">Single 17</button>
+                <button type="button" class="btn btn-secondary" value="p1_triple_17">Triple 17</button>
+                <button type="button" class="btn btn-secondary" value="p1_double_17">Double 17</button>
+                <button type="button" class="btn btn-secondary" value="p1_single_17">Single 17</button>
             </div>
         </div>
         <div class="col-4">
@@ -65,9 +68,9 @@
         </div>
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Single 17</button>
-                <button type="button" class="btn btn-secondary">Double 17</button>
-                <button type="button" class="btn btn-secondary">Triple 17</button>
+                <button type="button" class="btn btn-secondary" value="p2_single_17">Single 17</button>
+                <button type="button" class="btn btn-secondary" value="p2_double_17">Double 17</button>
+                <button type="button" class="btn btn-secondary" value="p2_triple_17">Triple 17</button>
             </div>
         </div>
     </div>
@@ -75,9 +78,9 @@
     <div class="row">
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Triple 18</button>
-                <button type="button" class="btn btn-secondary">Double 18</button>
-                <button type="button" class="btn btn-secondary">Single 18</button>
+                <button type="button" class="btn btn-secondary" value="p1_triple_18">Triple 18</button>
+                <button type="button" class="btn btn-secondary" value="p1_double_18">Double 18</button>
+                <button type="button" class="btn btn-secondary" value="p1_single_18">Single 18</button>
             </div>
         </div>
         <div class="col-4">
@@ -87,18 +90,18 @@
         </div>
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Single 18</button>
-                <button type="button" class="btn btn-secondary">Double 18</button>
-                <button type="button" class="btn btn-secondary">Triple 18</button>
+                <button type="button" class="btn btn-secondary" value="p2_single_18">Single 18</button>
+                <button type="button" class="btn btn-secondary" value="p2_double_18">Double 18</button>
+                <button type="button" class="btn btn-secondary" value="p2_triple_18">Triple 18</button>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Triple 19</button>
-                <button type="button" class="btn btn-secondary">Double 19</button>
-                <button type="button" class="btn btn-secondary">Single 19</button>
+                <button type="button" class="btn btn-secondary" value="p1_triple_19">Triple 19</button>
+                <button type="button" class="btn btn-secondary" value="p1_double_19">Double 19</button>
+                <button type="button" class="btn btn-secondary" value="p1_single_19">Single 19</button>
             </div>
         </div>
         <div class="col-4">
@@ -108,9 +111,9 @@
         </div>
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Single 19</button>
-                <button type="button" class="btn btn-secondary">Double 19</button>
-                <button type="button" class="btn btn-secondary">Triple 19</button>
+                <button type="button" class="btn btn-secondary" value="p2_single_19">Single 19</button>
+                <button type="button" class="btn btn-secondary" value="p2_double_19">Double 19</button>
+                <button type="button" class="btn btn-secondary" value="p2_triple_19">Triple 19</button>
             </div>
         </div>
     </div>
@@ -118,9 +121,9 @@
     <div class="row">
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Triple 20</button>
-                <button type="button" class="btn btn-secondary">Double 20</button>
-                <button type="button" class="btn btn-secondary">Single 20</button>
+                <button type="button" class="btn btn-secondary" value="p1_triple_20">Triple 20</button>
+                <button type="button" class="btn btn-secondary" value="p1_double_20">Double 20</button>
+                <button type="button" class="btn btn-secondary" value="p1_single_20">Single 20</button>
             </div>
         </div>
         <div class="col-4">
@@ -130,18 +133,18 @@
         </div>
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Single 20</button>
-                <button type="button" class="btn btn-secondary">Double 20</button>
-                <button type="button" class="btn btn-secondary">Triple 20</button>
-            </div>
+                <button type="button" class="btn btn-secondary" value="p2_single_20">Single 20</button>
+                <button type="button" class="btn btn-secondary" value="p2_double_20">Double 20</button>
+                <button type="button" class="btn btn-secondary" value="p2_triple_20">Triple 20</button>
+            </di20
         </div>
     </div>
 
     <div class="row">
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Double Bullseye</button>
-                <button type="button" class="btn btn-secondary">Single Bullseye</button>
+                <button type="button" class="btn btn-secondary" value="p1_double_Bullseye">Double Bullseye</button>
+                <button type="button" class="btn btn-secondary" value="p1_single_Bullseye">Single Bullseye</button>
                 
             </div>
         </div>
@@ -152,8 +155,8 @@
         </div>
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Single Bullseye</button>
-                <button type="button" class="btn btn-secondary">Double Bullseye</button>      
+                <button type="button" class="btn btn-secondary" value="p2_single_bullseye">Single Bullseye</button>
+                <button type="button" class="btn btn-secondary" value="p2_double_bullseye">Double Bullseye</button>      
             </div>
         </div>
     </div>
@@ -161,7 +164,7 @@
     <div class="row">
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">MISS</button>
+                <button type="button" class="btn btn-secondary" value="p1_miss">MISS</button>
             </div>
         </div>
         <div class="col-4">
@@ -171,11 +174,11 @@
         </div>
         <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">MISS</button>                
+                <button type="button" class="btn btn-secondary" value="p2_miss">MISS</button>                
             </div>
         </div>
     </div>
-    
+</div>
     
     
     
