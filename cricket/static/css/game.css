@@ -121,3 +121,6 @@ footer a {
 .page-core {
     padding: 20px;
 }
+div.container {
+    max-width: 100%;
+}

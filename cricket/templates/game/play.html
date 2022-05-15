@@ -6,181 +6,186 @@
 <h1> {{ game.id }} </h1>
 
 <div class="container">
-    <div class = "row justify-content-sm-center">
-    <div class="col-auto" >
-        <p class="row"> {{ game.player_one_username }}</p>
-        <div class="row">
-            <div class="btn-group btn-group-sm" role="group" aria-label="15 markers">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="btn-group" role="group" aria-label="15 markers">
                 <button type="button" class="btn btn-secondary">Triple 15</button>
                 <button type="button" class="btn btn-secondary">Double 15</button>
                 <button type="button" class="btn btn-secondary">Single 15</button>
             </div>
         </div>
-        <div class="row">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Triple 16</button>
-                <button type="button" class="btn btn-secondary">Double 16</button>
-                <button type="button" class="btn btn-secondary">Single 16</button>
-            </div>
+        <div class="col-4">
+                    <span class="col-1 justify-content-left">{{ inning.p1_fifteen }}</span>                    
+                    <span class="col-1 justify-content-center"> 15 </span>                    
+                    <span class="col-1 justify-content-right">{{ inning.p2_fifteen }}</span>                    
         </div>
-        <div class="row">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Triple 17</button>
-                <button type="button" class="btn btn-secondary">Double 17</button>
-                <button type="button" class="btn btn-secondary">Single 17</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Triple 18</button>
-                <button type="button" class="btn btn-secondary">Double 18</button>
-                <button type="button" class="btn btn-secondary">Single 18</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Triple 19</button>
-                <button type="button" class="btn btn-secondary">Double 19</button>
-                <button type="button" class="btn btn-secondary">Single 19</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Triple 20</button>
-                <button type="button" class="btn btn-secondary">Double 20</button>
-                <button type="button" class="btn btn-secondary">Single 20</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Double Bullseye</button>
-                <button type="button" class="btn btn-secondary">Single Bullseye</button>
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">MISS</button>                
-            </div>
-        </div>
-            
-
-       
-    </div>
-
-   <div class="col-auto">
-            <div class="row">
-                <span class="col-1 justify-content-left">{{ inning.player_one_username }}</span>                    
-                <span class="col-1 justify-content-center"> vs </span>                    
-                <span class="col-1 justify-content-right">{{ inning.player_two_username }}</span>                    
-            </div>
-            <div class="row">
-                <span class="col-1 justify-content-left">{{ inning.p1_fifteen }}</span>                    
-                <span class="col-1 justify-content-center"> 15 </span>                    
-                <span class="col-1 justify-content-right">{{ inning.p2_fifteen }}</span>                    
-            </div>
-            <div class="row">
-                <span class="col-1 justify-content-left">{{ inning.p1_sixteen }}</span>                    
-                <span class="col-1 justify-content-center"> 16 </span>                    
-                <span class="col-1 justify-content-right">{{ inning.p1_sixteen }}</span>                    
-            </div>
-            <div class="row">
-                <span class="col-1 justify-content-left">{{ inning.p1_seventeen }}</span>                    
-                <span class="col-1 justify-content-center"> 17 </span>                    
-                <span class="col-1 justify-content-right">{{ inning.p2_seventeen }}</span>                    
-            </div>
-            <div class="row">
-                <span class="col-1 justify-content-left">{{ inning.p1_eightteen }}</span>                    
-                <span class="col-1 justify-content-center"> 18 </span>                    
-                <span class="col-1 justify-content-right">{{ inning.p2_eightteen }}</span>                    
-            </div>
-            <div class="row">
-                <span class="col-1 justify-content-left">{{ inning.p1_nineteen }}</span>                    
-                <span class="col-1 justify-content-center"> 19 </span>                    
-                <span class="col-1 justify-content-right">{{ inning.p2_nineteen }}</span>                    
-            </div>
-            <div class="row">
-                <span class="col-1 justify-content-left">{{ inning.p1_twenty }}</span>                    
-                <span class="col-1 justify-content-center"> 20 </span>                    
-                <span class="col-1 justify-content-right">{{ inning.p2_twenty }}</span>                    
-            </div>
-            <div class="row">
-                <span class="col-1 justify-content-left">{{ inning.p1_bullseye }}</span>                    
-                <span class="col-1 justify-content-center"> Bullseye </span>                    
-                <span class="col-1 justify-content-right">{{ inning.p2_bullseye }}</span>                    
-            </div>
-            <div class="row">
-                <span class="col-1 justify-content-left">{{ inning.p1_miss }}</span>                    
-                <span class="col-1 justify-content-center"> MISS </span>                    
-                <span class="col-1 justify-content-right">{{ inning.p2_miss }}</span>                    
-            </div>
-    
-
-
-    
-    </div>
-
-    <div class="col-3" >
-        <p class="row"> {{ game.player_two_username }}</p>
-        <div class="row">
+        <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
                 <button type="button" class="btn btn-secondary">Single 15</button>
                 <button type="button" class="btn btn-secondary">Double 15</button>
                 <button type="button" class="btn btn-secondary">Triple 15</button>
             </div>
         </div>
-        <div class="row">
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="btn-group" role="group" aria-label="15 markers">
+                <button type="button" class="btn btn-secondary">Triple 16</button>
+                <button type="button" class="btn btn-secondary">Double 16</button>
+                <button type="button" class="btn btn-secondary">Single 16</button>
+            </div>
+        </div>
+        <div class="col-4">
+                <span class="col-1 justify-content-left">{{ inning.p1_sixteen }}</span> 
+                <span class="col-1 justify-content-center"> 16 </span>                  
+                <span class="col-1 justify-content-right">{{ inning.p2_sixteen }}</span>
+        </div>
+        <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
                 <button type="button" class="btn btn-secondary">Single 16</button>
                 <button type="button" class="btn btn-secondary">Double 16</button>
                 <button type="button" class="btn btn-secondary">Triple 16</button>
             </div>
         </div>
-        <div class="row">
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="btn-group" role="group" aria-label="15 markers">
+                <button type="button" class="btn btn-secondary">Triple 17</button>
+                <button type="button" class="btn btn-secondary">Double 17</button>
+                <button type="button" class="btn btn-secondary">Single 17</button>
+            </div>
+        </div>
+        <div class="col-4">
+            <span class="col-1 justify-content-left">{{ inning.p1_seventeen }}</span>  
+            <span class="col-1 justify-content-center"> 17 </span>                    
+            <span class="col-1 justify-content-right">{{ inning.p2_seventeen }}</span> 
+        </div>
+        <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
                 <button type="button" class="btn btn-secondary">Single 17</button>
                 <button type="button" class="btn btn-secondary">Double 17</button>
                 <button type="button" class="btn btn-secondary">Triple 17</button>
             </div>
         </div>
-        <div class="row">
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="btn-group" role="group" aria-label="15 markers">
+                <button type="button" class="btn btn-secondary">Triple 18</button>
+                <button type="button" class="btn btn-secondary">Double 18</button>
+                <button type="button" class="btn btn-secondary">Single 18</button>
+            </div>
+        </div>
+        <div class="col-4">
+            <span class="col-1 justify-content-left">{{ inning.p1_eightteen }}</span> 
+            <span class="col-1 justify-content-center"> 18 </span>                    
+            <span class="col-1 justify-content-right">{{ inning.p2_eightteen }}</span>
+        </div>
+        <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
                 <button type="button" class="btn btn-secondary">Single 18</button>
                 <button type="button" class="btn btn-secondary">Double 18</button>
                 <button type="button" class="btn btn-secondary">Triple 18</button>
             </div>
         </div>
-        <div class="row">
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="btn-group" role="group" aria-label="15 markers">
+                <button type="button" class="btn btn-secondary">Triple 19</button>
+                <button type="button" class="btn btn-secondary">Double 19</button>
+                <button type="button" class="btn btn-secondary">Single 19</button>
+            </div>
+        </div>
+        <div class="col-4">
+            <span class="col-1 justify-content-left">{{ inning.p1_nineteen }}</span>  
+            <span class="col-1 justify-content-center"> 19 </span>                    
+            <span class="col-1 justify-content-right">{{ inning.p2_nineteen }}</span> 
+        </div>
+        <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
                 <button type="button" class="btn btn-secondary">Single 19</button>
                 <button type="button" class="btn btn-secondary">Double 19</button>
                 <button type="button" class="btn btn-secondary">Triple 19</button>
             </div>
         </div>
-        <div class="row">
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="btn-group" role="group" aria-label="15 markers">
+                <button type="button" class="btn btn-secondary">Triple 20</button>
+                <button type="button" class="btn btn-secondary">Double 20</button>
+                <button type="button" class="btn btn-secondary">Single 20</button>
+            </div>
+        </div>
+        <div class="col-4">
+            <span class="col-1 justify-content-left">{{ inning.p1_twenty }}</span> 
+            <span class="col-1 justify-content-center"> 20 </span>                 
+            <span class="col-1 justify-content-right">{{ inning.p2_twenty }}</span>
+        </div>
+        <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
                 <button type="button" class="btn btn-secondary">Single 20</button>
                 <button type="button" class="btn btn-secondary">Double 20</button>
                 <button type="button" class="btn btn-secondary">Triple 20</button>
             </div>
         </div>
-        <div class="row">
+    </div>
+
+    <div class="row">
+        <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
-                <button type="button" class="btn btn-secondary">Single Bullseye</button>
                 <button type="button" class="btn btn-secondary">Double Bullseye</button>
+                <button type="button" class="btn btn-secondary">Single Bullseye</button>
                 
             </div>
         </div>
-        <div class="row justify-content-right">
+        <div class="col-4">
+            <span class="col-1 justify-content-left">{{ inning.p1_bullseye }}</span> 
+            <span class="col-1 justify-content-center"> Bullseye </span>             
+            <span class="col-1 justify-content-right">{{ inning.p2_bullseye }}</span>
+        </div>
+        <div class="col-4">
+            <div class="btn-group" role="group" aria-label="15 markers">
+                <button type="button" class="btn btn-secondary">Single Bullseye</button>
+                <button type="button" class="btn btn-secondary">Double Bullseye</button>      
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-4">
+            <div class="btn-group" role="group" aria-label="15 markers">
+                <button type="button" class="btn btn-secondary">MISS</button>
+            </div>
+        </div>
+        <div class="col-4">
+            <span class="col-1 justify-content-left">{{ inning.p1_miss }}</span> 
+            <span class="col-1 justify-content-center"> MISS </span>             
+            <span class="col-1 justify-content-right">{{ inning.p2_miss }}</span>
+        </div>
+        <div class="col-4">
             <div class="btn-group" role="group" aria-label="15 markers">
                 <button type="button" class="btn btn-secondary">MISS</button>                
             </div>
         </div>
-            
+    </div>
+    
+    
+    
+    
+    
 
-       
-    </div>
-    </div>
+    
+    
+    
+    
+    
 </div>
 
 {% endblock %}
