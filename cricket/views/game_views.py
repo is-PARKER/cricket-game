@@ -1,8 +1,9 @@
 
+from crypt import methods
 import flask
 from flask import redirect, render_template, Request
 from services.user_service import find_user_by_username
-
+from infrastructure.input_lists import hits_list
 
 from infrastructure import game_cookie_maker
 from infrastructure.forms import CreateGameForm
@@ -72,19 +73,31 @@ def creategame_post():
 
 
 ### Play Game ###
-@blueprint.route('/game/play/<int:game_id>')
-def play(game_id:int):
+@blueprint.route('/game/play/<int:game_id>', methods=['GET'])
+def play_get(game_id:int):
     vm = PlayGameViewmodel(game_id)
     print(vm.game_id)
     if vm.username != vm.inning.player_one_username:
         resp = flask.redirect('/account')
         return resp
 
-    #TODO: Create Get post logic that will round trip info for the game.
-
     return render_template('game/play.html', **vm.to_dict())
 
+@blueprint.route('/game/play/<int:game_id>', methods=['POST'])
+def play_post(game_id:int):
+    vm = PlayGameViewmodel(game_id)
+    form = vm.request.form
+    if form.get('dart_throw') in hits_list:
+        hit = form.get('dart_throw')
+        #TODO: Pass hit to function and 
+        print(hit)
+        
+    if vm.username != vm.inning.player_one_username:
+        resp = flask.redirect('/account')
+        return resp
 
+
+    return render_template('game/play.html', **vm.to_dict())
 
 
 ### TODO: Create Review Later ###
