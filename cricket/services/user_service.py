@@ -5,6 +5,8 @@ from passlib.handlers.sha2_crypt import sha512_crypt as crypto
 import data.__db_session as db_session
 from data.users import User
 
+from infrastructure import cookie_auth
+
 
 def get_user_count() -> int:
     session = db_session.create_session()

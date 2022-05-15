@@ -44,18 +44,21 @@ def create_game_with_inning(player_one_username: str, player_two_username: str) 
     inning = Inning()
     inning.player_one_username = player_one_username
     inning.player_two_username = player_two_username
-    inning.game_id = game.id
+    
     
 
     try:
         session.add(game)
+        session.flush()
+        inning.game_id = game.id
         session.add(inning)
         session.commit()
+        return game
+
     finally:
         session.close()
 
-    return game
-
+    
 
 def find_game_by_id(game_id: int) -> Optional[Game]:
     session = db_session.create_session()

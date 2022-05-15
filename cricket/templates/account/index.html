@@ -22,14 +22,14 @@
                 </tr>
                 {% for g in games %}
                     <tr>
-                        <td>g.game.latest_inning</td>
-                        <td>{{ g.game.game_over }}</td>
-                        <td>{{ g.game.player_one_username }} vs. {{ g.game.player_two_username }}</td> <!-- Turn these into hyperlinks eventually. -->
-                        <td>{{ g.game.player_one_score }} : {{ g.game.player_two_score }}</td>
-                            {% if g.game.game_over is false%}
-                            <td> continue </td> {# Needs a href for game continuation. #}
+                        <td> {{ g.latest_inning }}</td>
+                        <td>{{ g.game_over }}</td>
+                        <td>{{ g.player_one_username }} vs. {{ g.player_two_username }}</td> <!-- Turn these into hyperlinks eventually. -->
+                        <td>{{ g.player_one_score }} : {{ g.player_two_score }}</td>
+                            {% if g.game_over is false%}
+                            <td> <a href = "/game/play/{{ g.id }}"> Continue </a></td>
                             {% else %}
-                            <td> Winner: {{ g.game.winner_username }} </td>
+                            <td> Winner: {{ g.winner_username }} </td>
                             {% endif %}
                     </tr>
                 {% endfor %}

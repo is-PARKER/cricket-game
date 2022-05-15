@@ -13,7 +13,7 @@ from data.modelbase import Base
 class Game(Base):
     __tablename__ = "game"
 
-    id = sqlalchemy.Column(sqlalchemy.Integer,primary_key=True,index=True,unique=True)
+    id = sqlalchemy.Column(sqlalchemy.Integer,autoincrement=True,primary_key=True,index=True,unique=True)
     latest_inning = sqlalchemy.Column(sqlalchemy.Integer, nullable = False, default=0) 
     player_one_username = sqlalchemy.Column(sqlalchemy.Text(32), nullable= False) # Setup secondary key. Validation
     player_two_username = sqlalchemy.Column(sqlalchemy.Text(32), nullable = False) #Setup secondary Key. Validation

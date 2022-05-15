@@ -15,6 +15,7 @@ class CreateGameViewModel(ViewModelBase):
         super().__init__()
         
         self.player_one_username = get_username(self.request)
+        self.error_p2 = None
 
 
     

@@ -13,8 +13,8 @@ def set_game_cookies(response: Response, game_id, latest_inning, p1_username):
 
     resp = response
 
-    resp.set_cookie('game_id', game_id)
-    resp.set_cookie('latest_inning',latest_inning)
+    resp.set_cookie('game_id', str(game_id))
+    resp.set_cookie('latest_inning',str(latest_inning))
     resp.set_cookie('game_p1', p1_username)
 
     return resp

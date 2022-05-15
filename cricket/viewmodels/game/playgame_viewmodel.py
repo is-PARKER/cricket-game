@@ -17,11 +17,12 @@ class PlayGameViewmodel(ViewModelBase):
         if game_id:
             from services import game_service
             self.game = game_service.find_game_by_id(self.game_id)
+            print(f"Game ID: {self.game.id}")
 
         else:
             self.error = "Game is not created"        
 
-        if self.game.latest_inning:
+        if self.game:
             from services import inning_service
             self.inning = inning_service.find_inning_by_game(self.game_id)
 
