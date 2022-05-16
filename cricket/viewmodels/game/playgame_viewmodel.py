@@ -13,6 +13,7 @@ class PlayGameViewmodel(ViewModelBase):
         super().__init__()
         self.game_id = game_id
         self.game = None
+        self.hit = None
 
         if game_id:
             from services import game_service
