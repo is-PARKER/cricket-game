@@ -16,6 +16,7 @@ class Inning(Base):
     player_one_username = sqlalchemy.Column(sqlalchemy.Text(32), nullable =  False) # Set u p secondary key. Should be pulled from game creation.
     player_two_username = sqlalchemy.Column(sqlalchemy.Text(32), nullable = False) #Set u p secondary Key. Validation needed on creation.
     game_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("game.id"),  nullable = False) 
+    game_over = sqlalchemy.Column(sqlalchemy.Boolean, nullable=False, default=False)
 
     game = relationship("Game")
 

@@ -4,6 +4,7 @@ import flask
 from flask import redirect, render_template, Request
 from services.user_service import find_user_by_username
 from services.game_logic_service import compute_dart
+from services import inning_service
 from infrastructure.input_lists import hits_list
 
 from infrastructure import game_cookie_maker
@@ -90,8 +91,7 @@ def play_post(game_id:int):
     form = vm.request.form
     if form.get('dart_throw') in hits_list:
         vm.hit = form.get('dart_throw')
-        compute_dart(vm_dictionary=vm)
-        #TODO: Pass hit to function and 
+        vm.inning = compute_dart(vm_object=vm) 
         
         
     if vm.username != vm.inning.player_one_username:
