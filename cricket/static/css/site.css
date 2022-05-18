@@ -29,7 +29,20 @@ body {
 .game-container {
     background: #fff;
     margin: 40px;
-    padding: 20px 40px 50px;
+    padding: 20px 40px 0px;
+}
+
+.game-container .topper {
+    background: #fff;
+    text-align: center;
+    margin: auto;
+    padding: 0px 0px 0px;
+}
+
+.game-container .review-table {
+    background: #fff;
+    margin: auto;
+    
 }
 
 .account-container {
