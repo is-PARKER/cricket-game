@@ -67,6 +67,22 @@ def find_inning_by_id(inning_id: int) -> Optional[Inning]:
     finally:
         session.close()
 
+def find_p1_score_by_id(inning_id: int) -> Optional[Inning]:
+    session = db_session.create_session()
+    try:
+        inning = session.query(Inning).filter(Inning.id == inning_id).order_by(Inning.inning.desc()).first()
+        return inning.player_one_score
+    finally:
+        session.close()
+
+def find_p2_score_by_id(inning_id: int) -> Optional[Inning]:
+    session = db_session.create_session()
+    try:
+        inning = session.query(Inning).filter(Inning.id == inning_id).order_by(Inning.inning.desc()).first()
+        return inning.player_two_score
+    finally:
+        session.close()
+
 def update_inning_by_dart(inning_id: int, score: int, col_to_mark: str, mark_update: int) -> Optional[Inning]:
     session = db_session.create_session()
 

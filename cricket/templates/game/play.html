@@ -2,190 +2,190 @@
 {% block title %} Game {{ game.id }} {% endblock %}
 
 {% block main_content %}
+    <div class="game-container">
+        <h1> Game Id: {{ game.id }} </h1>
+        <h2> Darts left: {{ 3 - inning.dart_count }} </h2>
+        <h2> Player {{ inning.player_turn }}'s turn to throw!</h2>
 
-<h1> Game Id: {{ game.id }} </h1>
-<h2> Darts left: {{ 3 - inning.dart_count }} </h2>
-<h2> Player {{ inning.player_turn }}'s turn to throw!</h2>
+        <form method="post" action="">
+        <div class="container">
+            <div class="row justify-content-center"> {{ game.player_one_username }} vs. {{ inning.player_two_username }}</div> 
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_triple_15">Triple 15</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_double_15">Double 15</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_single_15">Single 15</button>
+                    </div>
+                </div>
+                <div class="col-4">
+                            <span class="col-1 justify-content-left">{{ inning.p1_fifteen }}</span>                    
+                            <span class="col-2 justify-content-center"> 15 </span>                    
+                            <span class="col-1 justify-content-right">{{ inning.p2_fifteen }}</span>                    
+                </div>
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_single_15">Single 15</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_double_15">Double 15</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_triple_15">Triple 15</button>
+                    </div> 
+                </div>
+            </div>
 
-<form method="post" action="">
-<div class="container">
-    <div class="row justify-content-center"> {{ game.player_one_username }} vs. {{ inning.player_two_username }}</div> 
-    <div class="row justify-content-center">
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_triple_15">Triple 15</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_double_15">Double 15</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_single_15">Single 15</button>
+            <div class="row">
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_triple_16">Triple 16</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_double_16">Double 16</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_single_16">Single 16</button>
+                    </div> 
+                </div>
+                <div class="col-4">
+                        <span class="col-1 justify-content-left">{{ inning.p1_sixteen }}</span> 
+                        <span class="col-1 justify-content-center"> 16 </span>                  
+                        <span class="col-1 justify-content-right">{{ inning.p2_sixteen }}</span>
+                </div>
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_single_16">Single 16</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_double_16">Double 16</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_triple_16">Triple 16</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-4">
-                    <span class="col-1 justify-content-left">{{ inning.p1_fifteen }}</span>                    
-                    <span class="col-2 justify-content-center"> 15 </span>                    
-                    <span class="col-1 justify-content-right">{{ inning.p2_fifteen }}</span>                    
-        </div>
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_single_15">Single 15</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_double_15">Double 15</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_triple_15">Triple 15</button>
-            </div> 
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_triple_16">Triple 16</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_double_16">Double 16</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_single_16">Single 16</button>
-            </div> 
-        </div>
-        <div class="col-4">
-                <span class="col-1 justify-content-left">{{ inning.p1_sixteen }}</span> 
-                <span class="col-1 justify-content-center"> 16 </span>                  
-                <span class="col-1 justify-content-right">{{ inning.p2_sixteen }}</span>
-        </div>
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_single_16">Single 16</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_double_16">Double 16</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_triple_16">Triple 16</button>
+            <div class="row">
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw"  value="p1_triple_17">Triple 17</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw"  value="p1_double_17">Double 17</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw"  value="p1_single_17">Single 17</button>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <span class="col-1 justify-content-left">{{ inning.p1_seventeen }}</span>  
+                    <span class="col-1 justify-content-center"> 17 </span>                    
+                    <span class="col-1 justify-content-right">{{ inning.p2_seventeen }}</span> 
+                </div>
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_single_17">Single 17</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_double_17">Double 17</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_triple_17">Triple 17</button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw"  value="p1_triple_17">Triple 17</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw"  value="p1_double_17">Double 17</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw"  value="p1_single_17">Single 17</button>
+            <div class="row">
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw"  value="p1_triple_18">Triple 18</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw"  value="p1_double_18">Double 18</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw"  value="p1_single_18">Single 18</button>
+                    </div> 
+                </div>
+                <div class="col-4">
+                    <span class="col-1 justify-content-left">{{ inning.p1_eightteen }}</span> 
+                    <span class="col-1 justify-content-center"> 18 </span>                    
+                    <span class="col-1 justify-content-right">{{ inning.p2_eightteen }}</span>
+                </div>
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_single_18">Single 18</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_double_18">Double 18</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_triple_18">Triple 18</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-4">
-            <span class="col-1 justify-content-left">{{ inning.p1_seventeen }}</span>  
-            <span class="col-1 justify-content-center"> 17 </span>                    
-            <span class="col-1 justify-content-right">{{ inning.p2_seventeen }}</span> 
-        </div>
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_single_17">Single 17</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_double_17">Double 17</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_triple_17">Triple 17</button>
+            <div class="row">
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_triple_19">Triple 19</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_double_19">Double 19</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_single_19">Single 19</button>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <span class="col-1 justify-content-left">{{ inning.p1_nineteen }}</span>  
+                    <span class="col-1 justify-content-center"> 19 </span>                    
+                    <span class="col-1 justify-content-right">{{ inning.p2_nineteen }}</span> 
+                </div>
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_single_19">Single 19</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_double_19">Double 19</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_triple_19">Triple 19</button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw"  value="p1_triple_18">Triple 18</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw"  value="p1_double_18">Double 18</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw"  value="p1_single_18">Single 18</button>
-            </div> 
-        </div>
-        <div class="col-4">
-            <span class="col-1 justify-content-left">{{ inning.p1_eightteen }}</span> 
-            <span class="col-1 justify-content-center"> 18 </span>                    
-            <span class="col-1 justify-content-right">{{ inning.p2_eightteen }}</span>
-        </div>
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_single_18">Single 18</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_double_18">Double 18</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_triple_18">Triple 18</button>
+            <div class="row">
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_triple_20">Triple 20</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_double_20">Double 20</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_single_20">Single 20</button>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <span class="col-1 justify-content-left">{{ inning.p1_twenty }}</span> 
+                    <span class="col-1 justify-content-center"> 20 </span>                 
+                    <span class="col-1 justify-content-right">{{ inning.p2_twenty }}</span>
+                </div>
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_single_20">Single 20</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_double_20">Double 20</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_triple_20">Triple 20</button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_triple_19">Triple 19</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_double_19">Double 19</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_single_19">Single 19</button>
-            </div>
-        </div>
-        <div class="col-4">
-            <span class="col-1 justify-content-left">{{ inning.p1_nineteen }}</span>  
-            <span class="col-1 justify-content-center"> 19 </span>                    
-            <span class="col-1 justify-content-right">{{ inning.p2_nineteen }}</span> 
-        </div>
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_single_19">Single 19</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_double_19">Double 19</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_triple_19">Triple 19</button>
-            </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_triple_20">Triple 20</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_double_20">Double 20</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_single_20">Single 20</button>
-            </div>
-        </div>
-        <div class="col-4">
-            <span class="col-1 justify-content-left">{{ inning.p1_twenty }}</span> 
-            <span class="col-1 justify-content-center"> 20 </span>                 
-            <span class="col-1 justify-content-right">{{ inning.p2_twenty }}</span>
-        </div>
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_single_20">Single 20</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_double_20">Double 20</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_triple_20">Triple 20</button>
-            </div>
-        </div>
-    </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_double_bullseye">Double Bullseye</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_single_bullseye">Single Bullseye</button>
 
-    <div class="row">
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_double_bullseye">Double Bullseye</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_single_bullseye">Single Bullseye</button>
-                
+                    </div>
+                </div>
+                <div class="col-4">
+                    <span class="col-1 justify-content-left">{{ inning.p1_bullseye }}</span> 
+                    <span class="col-1 justify-content-center"> Bullseye </span>             
+                    <span class="col-1 justify-content-right">{{ inning.p2_bullseye }}</span>
+                </div>
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_single_bullseye">Single Bullseye</button>
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_double_bullseye">Double Bullseye</button>      
+                    </div> 
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_miss">MISS</button>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <span class="col-1 justify-content-left">{{ inning.p1_miss }}</span> 
+                    <span class="col-1 justify-content-center"> MISS </span>             
+                    <span class="col-1 justify-content-right">{{ inning.p2_miss }}</span>
+                </div>
+                <div class="col-4">
+                    <div class="btn-group" role="group" aria-label="15 markers">
+                        <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_miss">MISS</button>                
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-4">
-            <span class="col-1 justify-content-left">{{ inning.p1_bullseye }}</span> 
-            <span class="col-1 justify-content-center"> Bullseye </span>             
-            <span class="col-1 justify-content-right">{{ inning.p2_bullseye }}</span>
-        </div>
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_single_bullseye">Single Bullseye</button>
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_double_bullseye">Double Bullseye</button>      
-            </div> 
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p1_miss">MISS</button>
-            </div>
-        </div>
-        <div class="col-4">
-            <span class="col-1 justify-content-left">{{ inning.p1_miss }}</span> 
-            <span class="col-1 justify-content-center"> MISS </span>             
-            <span class="col-1 justify-content-right">{{ inning.p2_miss }}</span>
-        </div>
-        <div class="col-4">
-            <div class="btn-group" role="group" aria-label="15 markers">
-                <button class="btn btn-secondary" type="submit" name="dart_throw" value="p2_miss">MISS</button>                
-            </div>
-        </div>
-    </div>
-</div>
-</form>
-    
+        </form>
+    </div>   
 
 {% endblock %}
 
 {% block additional_css %}
-    <link rel="stylesheet" href="/static/css/game.css">
+    <link rel="stylesheet" href="/static/css/site.css">
 {% endblock %}
 

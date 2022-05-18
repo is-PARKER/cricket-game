@@ -3,33 +3,43 @@
 {% block title %} User Account {% endblock %}
 
 {% block main_content %}
-    <div class="page-core">
-        <h1>Your Cricket Account</h1>
+    <div class="account-container">
+        <div class="topper">
+            <h1>Cricket Account</h1>
 
-        <div>
-            Welcome to your account {{ username }}!
+            <div>
+                <p>Welcome to your account <span class="bigger-name"></span> {{ username }}!</p>
+                <p>See your games and their status below.</p>
+            </div>
         </div>
         
-        <div class="games_table">
-            <h3>Recent Games</h3>
+        <div class="table">
             <table>
                 <tr>    
-                    <th> Game </th>
+                    <th> Game ID </th>
                     <th> Status </th>
                     <th> Players </th>
-                    <th> Scores </th>
+                    {# <th> Scores </th>  #} {# This needs a join between Games and Innings.#}
                     <th> Status </th>
                 </tr>
                 {% for g in games %}
                     <tr>
-                        <td> {{ g.latest_inning }}</td>
-                        <td>{{ g.game_over }}</td>
+                        <td> {{ g.id }}</td>
+                            {% if g.game_over is false%}
+                            <td> In Progress </td>
+                            {% else %}
+                            <td> Game Over </td>
+                            {% endif %}
                         <td>{{ g.player_one_username }} vs. {{ g.player_two_username }}</td> <!-- Turn these into hyperlinks eventually. -->
-                        <td>{{ g.player_one_score }} : {{ g.player_two_score }}</td>
+                        {# <td>{{ g.player_one_score }}  {{ g.player_two_score }}</td> #}
                             {% if g.game_over is false%}
                             <td> <a href = "/game/play/{{ g.id }}"> Continue </a></td>
                             {% else %}
-                            <td> <a href = "/game/review/{{ g.id }}">Winner</a>: {{ g.winner_username }} </td>
+                                {% if g.winner_username == 'draw' %}
+                                    <td> <a href = "/game/review/{{ g.id }}">Draw</a> </td>   
+                                {% else %}
+                                    <td> <a href = "/game/review/{{ g.id }}">Winner</a>: {{ g.winner_username }} </td>
+                                {% endif %}
                             {% endif %}
                     </tr>
                 {% endfor %}

@@ -5,8 +5,8 @@
 {% block main_content %}
     <div class="form-container">
         <form action="" method="POST" class ="account-form">
-            <h1> Login </h1>
-            <div>{{ form.username.label }}: {{ form.username() }}</div>
+            <h1> Register </h1>
+            <div><span class="form-label">{{ form.username.label }}</span> : {{ form.username() }}</div>
                 {% if form.username.errors %}
                 <ul class="error-msg">
                     {% for error in form.username.errors %}
@@ -50,5 +50,5 @@
 {% endblock %}
 
 {% block additional_css %}
-    <!-- this would be css from about.html -->
+   
 {% endblock %}

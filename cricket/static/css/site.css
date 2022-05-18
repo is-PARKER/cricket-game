@@ -4,7 +4,7 @@ body {
     padding: 0px;
     font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
     font-size: 17px;
-    background-color: #006dad;
+    background-color: #000000c4;
 }
 
 .main_content {
@@ -13,9 +13,45 @@ body {
     padding: 0px 0px 50px;
 }
 
+.main_content  {
+    align-self: center;
+    background: #fff;
+    margin: 0px;
+    padding: 0px 0px 50px;
+}
 
+.form-container {
+    background: #fff;
+    margin: 20px;
+    padding: 40px 40px 50px;
+}
+
+.game-container {
+    background: #fff;
+    margin: 40px;
+    padding: 20px 40px 50px;
+}
+
+.account-container {
+    background: #fff;
+    margin: 40px;
+    padding: 20px 40px 50px;
+}
+
+.account-container .topper {
+    background: #fff;
+    margin: 0;
+    padding: 0px 0px 30px;
+}
+
+.account-container .topper p{
+    background: #fff;
+    margin: 0px;
+    padding: 0px 20px 0px;
+}
 .hero {
-    background-color: #0073b7;
+    background-color: #000000c4
+;
     color: white;
     font-size: 18px;
 
@@ -61,7 +97,7 @@ body {
     min-width: 170px;
     padding: 10px;
     font-size: 16px;
-    color: #003d61;
+    color: #000000cf;
 }
 
 .project-list .subtitle {
@@ -88,7 +124,8 @@ body {
 }
 
 .project-list .project a {
-    color: #006dad;
+    color: #000000cf;
+    text-decoration: underline;
 }
 
 .project-list .project .desc {
@@ -103,7 +140,7 @@ footer {
     padding: 30px;
     text-align: center;
     background-color:  #8ae3cf;
-    color: black;
+    color: #000000cf;
 }
 
 footer a {

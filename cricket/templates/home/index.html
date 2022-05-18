@@ -26,7 +26,7 @@
                 {% for i in innings %}
                     <div class="project">
                         <div class="title">
-                            <div> Turn {{ i.inning + 1 }} of Game: {{ i.game_id }} </div>
+                            <div> Turn {{ i.inning + 1 }} of Game {{ i.game_id }} </div>
                             
                             <div class="desc"> {{ i.player_one_username }}:{{ i.player_one_score }} </div>
                             <div class="desc"> {{ i.player_two_username }}:{{ i.player_two_score }}</div>
