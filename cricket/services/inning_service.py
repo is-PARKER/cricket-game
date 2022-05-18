@@ -144,7 +144,40 @@ def update_inning_by_dart(inning_id: int, score: int, col_to_mark: str, mark_upd
 
             print(f"Player turn now {inning.player_turn}")
             
-            session.add(inning)
+
+        # TODO: Pass object with all the data form old inning.    
+        new_inning = Inning(player_one_username=inning.player_one_username,
+                            player_two_username=inning.player_two_username,
+                            game_id=inning.game_id,
+                            game_over=inning.game_over,
+                            player_one_score=inning.player_one_score,
+                            player_two_score=inning.player_two_score,
+                            scrubbed=inning.scrubbed,
+                            player_turn=inning.player_turn,
+                            inning=inning.inning,
+                            dart_count=inning.dart_count,
+                                                  
+                            p1_fifteen=inning.p1_fifteen,     
+                            p1_sixteen=inning.p1_sixteen,
+                            p1_seventeen=inning.p1_seventeen,
+                            p1_eightteen=inning.p1_eightteen,
+                            p1_nineteen=inning.p1_nineteen,
+                            p1_twenty=inning.p1_twenty,
+                            p1_bullseye=inning.p1_bullseye,
+                            p1_miss=inning.p1_miss,
+
+                            p2_fifteen=inning.p2_fifteen,
+                            p2_sixteen=inning.p2_sixteen,
+                            p2_seventeen=inning.p2_seventeen,
+                            p2_eightteen=inning.p2_eightteen,
+                            p2_nineteen=inning.p2_nineteen,
+                            p2_twenty=inning.p2_twenty,
+                            p2_bullseye=inning.p2_bullseye,
+                            p2_miss=inning.p2_miss,
+
+        )
+
+        session.add(new_inning)
             
 
 
