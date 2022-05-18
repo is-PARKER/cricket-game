@@ -15,9 +15,9 @@ class IndexViewModel(ViewModelBase):
         
         from services.user_service import get_user_count
         from services.game_service import get_games_count
-        from services.inning_service import get_latest_innings
+        from services.inning_service import get_latest_innings, get_innings_count
 
         self.innings = get_latest_innings()
         self.games_count = get_games_count()
-        self.innings_count = get_games_count()
+        self.innings_count = get_innings_count()
         self.user_count = get_user_count()

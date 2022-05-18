@@ -72,6 +72,15 @@ def creategame_post():
     return render_template('game/create.html', **vm.to_dict())
 
 
+@blueprint.route('/game/review/<int:game_id>',methods=['GET','POST'])
+def game_review(game_id: int):
+    vm = PlayGameViewmodel(game_id)
+    print(vm.game_id)
+    if vm.username != vm.inning.player_one_username:
+        resp = flask.redirect('/account')
+        return resp
+
+    return render_template('game/review.html', **vm.to_dict())
 
 
 ### Play Game ###
@@ -92,7 +101,11 @@ def play_post(game_id:int):
     if form.get('dart_throw') in hits_list:
         vm.hit = form.get('dart_throw')
         vm.inning = compute_dart(vm_object=vm) 
-        
+    
+    if vm.game.game_over == True:
+        game_id = vm.game_id
+        resp = flask.redirect('/game/review/<int:game_id>')
+        return resp
         
     if vm.username != vm.inning.player_one_username:
         resp = flask.redirect('/account')

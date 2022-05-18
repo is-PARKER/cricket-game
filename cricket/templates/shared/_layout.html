@@ -19,7 +19,7 @@
 <body>
 
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse navbar-expand-md">
-    <a class="navbar-brand" href="/"><img src="/static/img/cricket.jpg"/></a>
+    <a class="navbar-brand" href="/"><img src="/static/img/cricket_3_long.jpg"/></a>
 
     <button class="navbar-toggler navbar-toggle" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -33,11 +33,11 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
 
             {% if username %}
                 <li class="nav-item"><a class="nav-link" href="/account">Account</a></li>
-                <li class="nav-item"><a class="nav-link" href="/game/create" > Create</a></li>
+                <li class="nav-item"><a class="nav-link" href="/game/create" id="last_nav_link"> Create</a></li>
                 <li class="nav-item"><a class="nav-link" href="/account/logout" id="last_nav_link">Logout</a></li>
 
             {% else %}
@@ -55,7 +55,7 @@
 
 <footer>
     <div class="copyright">
-        This is a short data gathering application build by Nicholas Stoll and Christopher Parker.<br>
+        This is a short data pipeline application build by Nicholas Stoll and Christopher Parker.<br>
         <br>
         Copyright belongs to <a href="https://github.com/is-PARKER"> Christopher Parker </a> and 
         <a href="https://www.linkedin.com/in/nbstoll?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BLuSv9T7dSYWsyRCY0ysQEQ%3D%3D">  Nicholas Stoll </a>

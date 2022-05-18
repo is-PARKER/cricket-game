@@ -18,7 +18,7 @@
                     <th> Status </th>
                     <th> Players </th>
                     <th> Scores </th>
-                    <th> Continue </th>
+                    <th> Status </th>
                 </tr>
                 {% for g in games %}
                     <tr>
@@ -29,7 +29,7 @@
                             {% if g.game_over is false%}
                             <td> <a href = "/game/play/{{ g.id }}"> Continue </a></td>
                             {% else %}
-                            <td> Winner: {{ g.winner_username }} </td>
+                            <td> <a href = "/game/review/{{ g.id }}">Winner</a>: {{ g.winner_username }} </td>
                             {% endif %}
                     </tr>
                 {% endfor %}

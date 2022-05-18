@@ -99,14 +99,15 @@ body {
 
 
 footer {
-    margin-top: 50px;
+    margin-top: 40px;
     padding: 30px;
     text-align: center;
-    color: white;
+    background-color:  #8ae3cf;
+    color: black;
 }
 
 footer a {
-    color: #2495f2;
+    color: #0d147a;
 }
 
 .error-msg {

@@ -1,0 +1,85 @@
+{% extends "shared/_layout.html" %}
+{% block title %} Game {{ game.id }} {% endblock %}
+
+{% block main_content %}
+
+<h1> Game Id: {{ game.id }} </h1>
+<h2> Winner: {{ game.winner_username}} </h2>
+
+<div class="game_bar">
+        <span class="col-1 justify-content-left">{{ game.player_one_username }}</span>                    
+        <span class="col-2 justify-content-center"> vs </span>                    
+        <span class="col-1 justify-content-right">{{ inning.player_two_username }}</span>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        
+        <div class="col-4">
+                <span class="col-1 justify-content-left">{{ inning.p1_fifteen }}</span>                    
+                <span class="col-2 justify-content-center"> 15 </span>                    
+                <span class="col-1 justify-content-right">{{ inning.p2_fifteen }}</span>                    
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+                <span class="col-1 justify-content-left">{{ inning.p1_sixteen }}</span> 
+                <span class="col-1 justify-content-center"> 16 </span>                  
+                <span class="col-1 justify-content-right">{{ inning.p2_sixteen }}</span>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <span class="col-1 justify-content-left">{{ inning.p1_seventeen }}</span>  
+            <span class="col-1 justify-content-center"> 17 </span>                    
+            <span class="col-1 justify-content-right">{{ inning.p2_seventeen }}</span> 
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <span class="col-1 justify-content-left">{{ inning.p1_eightteen }}</span> 
+            <span class="col-1 justify-content-center"> 18 </span>                    
+            <span class="col-1 justify-content-right">{{ inning.p2_eightteen }}</span>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <span class="col-1 justify-content-left">{{ inning.p1_nineteen }}</span>  
+            <span class="col-1 justify-content-center"> 19 </span>                    
+            <span class="col-1 justify-content-right">{{ inning.p2_nineteen }}</span> 
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <span class="col-1 justify-content-left">{{ inning.p1_twenty }}</span> 
+            <span class="col-1 justify-content-center"> 20 </span>                 
+            <span class="col-1 justify-content-right">{{ inning.p2_twenty }}</span>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <span class="col-1 justify-content-left">{{ inning.p1_bullseye }}</span> 
+            <span class="col-1 justify-content-center"> Bullseye </span>             
+            <span class="col-1 justify-content-right">{{ inning.p2_bullseye }}</span>
+        </div>
+    </div>
+    
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <span class="col-1 justify-content-left">{{ inning.p1_miss }}</span> 
+            <span class="col-1 justify-content-center"> MISS </span>             
+            <span class="col-1 justify-content-right">{{ inning.p2_miss }}</span>
+        </div>
+    </div>
+</div>    
+
+{% endblock %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="/static/css/game.css">
+{% endblock %}
+
