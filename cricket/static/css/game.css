@@ -4,12 +4,12 @@ body {
     padding: 0px;
     font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
     font-size: 17px;
-    background-color: #006dad;
+    background-color: #000000c4;
 }
 
-div.row * 
-{
-    max-width: 100%;
+form {
+    padding: 0px;
+
 }
 
 .main_content {
@@ -18,9 +18,58 @@ div.row *
     padding: 0px 0px 50px;
 }
 
+.main_content  {
+    align-self: center;
+    background: #fff;
+    margin: 0px;
+    padding: 0px 0px 50px;
+}
 
+.form-container {
+    background: #fff;
+    margin: 40px;
+    padding: 40px 40px 50px;
+}
+
+.game-container {
+    background: #fff;
+    margin: 40px;
+    padding: 20px 40px 0px;
+}
+
+.game-container .topper {
+    background: #fff;
+    text-align: center;
+    margin: auto;
+    padding: 0px 0px 0px;
+}
+
+.game-container .review-table {
+    background: #fff;
+    margin: auto;
+    
+}
+
+.account-container {
+    background: #fff;
+    margin: 40px;
+    padding: 20px 40px 50px;
+}
+
+.account-container .topper {
+    background: #fff;
+    margin: 0;
+    padding: 0px 0px 30px;
+}
+
+.account-container .topper p{
+    background: #fff;
+    margin: 0px;
+    padding: 0px 20px 0px;
+}
 .hero {
-    background-color: #0073b7;
+    background-color: #000000c4
+;
     color: white;
     font-size: 18px;
 
@@ -66,7 +115,7 @@ div.row *
     min-width: 170px;
     padding: 10px;
     font-size: 16px;
-    color: #003d61;
+    color: #000000cf;
 }
 
 .project-list .subtitle {
@@ -93,7 +142,8 @@ div.row *
 }
 
 .project-list .project a {
-    color: #006dad;
+    color: #000000cf;
+    text-decoration: underline;
 }
 
 .project-list .project .desc {
@@ -104,14 +154,15 @@ div.row *
 
 
 footer {
-    margin-top: 50px;
+    margin-top: 40px;
     padding: 30px;
     text-align: center;
-    color: white;
+    background-color:  #8ae3cf;
+    color: #000000cf;
 }
 
 footer a {
-    color: #2495f2;
+    color: #0d147a;
 }
 
 .error-msg {
@@ -120,7 +171,4 @@ footer a {
 
 .page-core {
     padding: 20px;
-}
-div.container {
-    max-width: 100%;
 }
