@@ -18,8 +18,9 @@ class PlayGameViewmodel(ViewModelBase):
         if game_id:
             from services import game_service
             self.game = game_service.find_game_by_id(self.game_id)
-            print(f"Game ID: {self.game.id}")
-
+            if not self.game:
+                return None
+        
         else:
             self.error = "Game is not created"        
 

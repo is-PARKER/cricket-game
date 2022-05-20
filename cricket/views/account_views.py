@@ -71,6 +71,10 @@ def register_post():
 @blueprint.route('/account/login', methods=['GET'])
 def login_get():
     vm = LoginViewmodel()
+    if vm.username:
+        resp = flask.redirect('/account')
+        return resp
+
     request_form = vm.request.form
     form = LoginForm(request_form)
     vm.form = form
@@ -81,6 +85,7 @@ def login_get():
 def login_post():
 
     vm = LoginViewmodel()
+    
     request_form = vm.request.form
     form = LoginForm(request_form)
 
@@ -92,11 +97,11 @@ def login_post():
 
         if not user:
             vm.error = "User Invalid!"
-    
-        resp = flask.redirect('/account')
-        set_auth_username(resp, user.username)
-        
-        return resp
+       
+        else:
+            resp = flask.redirect('/account')
+            set_auth_username(resp, user.username)
+            return resp
 
     vm.form = form
 

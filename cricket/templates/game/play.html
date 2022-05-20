@@ -17,14 +17,18 @@
                     </div>
             </div>
         </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                  <h1> {{ inning.player_one_username }}: {{ inning.player_one_score }} </h1>
+                </div>
+                <div class="col">
+                   <h1> {{ inning.player_two_username }}: {{ inning.player_two_score }} </h1>
+                </div>
+            </div>
+        </div>
         <form method="post" action="">
         <div class="container">
-            <div class="row justify-content-center"> 
-                <div class="col-4"></div>
-                <div class="col-4 align-self-start">{{ game.player_one_username }} vs. {{ inning.player_two_username }}
-                </div>
-                <div class="col-4"></div>
-            </div> 
             <div class="row">
                 <div class="col-4">
                     <div class="btn-group btn-group-sm" role="group" aria-label="15 markers">
