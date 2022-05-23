@@ -23,7 +23,7 @@ def get_latest_innings() -> List[Inning]:
         session.close()
 
 
-def find_innings_by_game(game_id: str) -> Optional[list[Inning]]:
+def find_innings_by_game(game_id: str) -> Optional[List[Inning]]:
     session = db_session.create_session()
     try:
         return list(session.query(Inning).filter(Inning.game_id == game_id).order_by(Inning.game_id.desc()))
