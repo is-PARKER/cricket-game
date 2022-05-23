@@ -3,7 +3,7 @@ Description=uWSGI Cricket server instance
 After=syslog.target
 
 [Service]
-ExecStart=/apps/venv/bin/uwsgi -H /apps/venv --master --processes 4 --threads 2 --http :5000 --manage-script-name --python-path /apps/cricket_repo --mount /=wsgi:cricket
+ExecStart=/apps/venv/bin/uwsgi -H /apps/venv --master --processes 4 --threads 2 --http :5000 --manage-script-name --python-path /apps/cricket_repo/cricket --mount /=wsgi:cricket
 RuntimeDirectory=/apps/cricket_repo/cricket
 Restart=always
 KillSignal=SIGQUIT
