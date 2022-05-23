@@ -1,6 +1,6 @@
 from sqlalchemy import bindparam, text,update
 import imp
-from typing import Optional
+from typing import Optional,List
 from data.games import Game
 from data.innings import Inning
 
@@ -15,7 +15,7 @@ def get_innings_count() -> int:
         session.close()
 
 
-def get_latest_innings() -> list[Inning]:
+def get_latest_innings() -> List[Inning]:
     session = db_session.create_session()
     try:
         return session.query(Inning).order_by(Inning.id.desc()).limit(5)
