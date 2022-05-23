@@ -1,6 +1,6 @@
 from sqlalchemy import bindparam, text,update
 import imp
-from typing import Optional,List
+from typing import Optional, List
 from data.games import Game
 from data.innings import Inning
 

@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 import data.__db_session as db_session
 
