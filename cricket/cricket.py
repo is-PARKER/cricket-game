@@ -11,7 +11,7 @@ from flask import Flask
 folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, folder)
 
-from cricket.data import __db_session as db_session
+from data import __db_session as db_session
 
 
 import config
