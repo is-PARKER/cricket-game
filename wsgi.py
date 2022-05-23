@@ -1,7 +1,4 @@
-from cricket import main
-from cricket import cricket as application
+from cricket import cricket, main
 
 if __name__ == '__main__':
-
     main()
-    application.run()
